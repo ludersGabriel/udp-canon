@@ -1,4 +1,8 @@
 #include "server.h"
+#include <iostream>
+#include <bits/stdc++.h>
+
+using namespace std;
 
 int main() {
   Server* server = serverConstructor((char*)"8080");
@@ -6,6 +10,7 @@ int main() {
   for(;;){
     receiveFromClient(server);
     sendToClient(server);
+    printReport(server);
   }
 
   serverDestructor(server);

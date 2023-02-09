@@ -1,3 +1,5 @@
+#ifndef SERVER_H
+#define SERVER_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -8,6 +10,11 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <netdb.h>
+
+#include <iostream>
+#include <bits/stdc++.h>
+
+using namespace std;
 
 #define QUEUESIZE 5
 #define MAXHOSTNAME 30
@@ -23,6 +30,9 @@ typedef struct SERVER {
   char hostname[MAXHOSTNAME];
   bool isUDP;
 
+  vector<pair<int, int>> seq;
+  int expectedSeqNum = 0;
+
 } Server;
 
 Server* serverConstructor(char* port, bool udp = true);
@@ -31,3 +41,6 @@ void listenToClients(Server* server);
 void acceptClient(Server* server);
 void receiveFromClient(Server* server);
 void sendToClient(Server* server);
+void printReport(Server* server);
+
+#endif

@@ -55,7 +55,18 @@ void receiveFromClient(Server* server){
     (struct sockaddr*) &(server->clientAddress),
     (socklen_t*) &i
   );
-  printf( "Server: received '%s'\n", server->buffer);
+
+  string s = string(server->buffer);
+
+  int j = s.find("[");
+  int k = s.find("]");
+  int index = atoi(s.substr(j + 1, k - j - 1).c_str());
+
+  server->seq.push_back(
+    pair(index, (server->expectedSeqNum)++)
+  );
+
+  // printf( "Server: received %s\n", server->buffer);
 }
 
 void sendToClient(Server* server){
@@ -68,3 +79,9 @@ void sendToClient(Server* server){
     sizeof(server->clientAddress)
   );
 }
+
+void printReport(Server* server){
+  for(int i = 0; i < server->seq.size(); i++){
+    printf( "Server: received %d at %d\n", server->seq[i].first, server->seq[i].second);
+  }
+} 

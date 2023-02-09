@@ -1,3 +1,6 @@
+#ifndef CLIENT_H
+#define CLIENT_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -18,7 +21,10 @@ typedef struct CLIENT {
     bool isUDP;
 } Client; 
 
+
 Client* clientConstructor(char* svName, char* port, bool udp = true);
 void clientDestructor(Client* client);
 void sendToServer(Client* client, char* message);
 void waitForServer(Client* client);
+
+#endif
