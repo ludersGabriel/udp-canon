@@ -64,7 +64,7 @@ void parentMain(vector<int> pids) {
 }
 
 void childMain(int balls, char* server, char* port){
-  int cannonballs = cannonballs;
+  int cannonballs = balls;
   int myPid = getpid();
 
   Client* client = clientConstructor(server, port);
