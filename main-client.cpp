@@ -14,6 +14,9 @@
 
 using namespace std;
 
+void parentMain(vector<int> pids);
+void childMain(int balls, char* server, char* port);
+
 int main(int argc, char** argv) {
   if(argc != 5) {
     printf("Usage: client <server> <port> <clients> <cannonballs>\n");
@@ -29,32 +32,42 @@ int main(int argc, char** argv) {
   }while(pid && --clients);
 
   if(pid) {
-    printf("client: forked all cannonballs\n");
-
-    int status = 0;
-    int wpid;
-    while ((wpid = wait(&status)) > 0);
-    printf("client: printing reports for each fork\n");
-
-    // print reports here
-    for(long unsigned int i = 0; i < pids.size(); i++){
-      cout << endl;
-      string fileName = "client" + to_string(pids[i]) + ".txt";
-      ifstream file(fileName);
-      string line;
-      while(getline(file, line)){
-        cout << line << endl;
-      }
-      file.close();
-    }
-    cout << endl;
+    parentMain(pids);
     return 0;
   }
 
-  int cannonballs = atoi(argv[4]);
+  childMain(atoi(argv[4]), argv[1], argv[2]);
+
+  return 0;
+}
+
+void parentMain(vector<int> pids) {
+  printf("client: forked all cannonballs\n");
+
+  int status = 0;
+  int wpid;
+  while ((wpid = wait(&status)) > 0);
+  printf("client: printing reports for each fork\n");
+
+  // print reports here
+  for(long unsigned int i = 0; i < pids.size(); i++){
+    cout << endl;
+    string fileName = "client" + to_string(pids[i]) + ".txt";
+    ifstream file(fileName);
+    string line;
+    while(getline(file, line)){
+      cout << line << endl;
+    }
+    file.close();
+  }
+  cout << endl;
+}
+
+void childMain(int balls, char* server, char* port){
+  int cannonballs = cannonballs;
   int myPid = getpid();
 
-  Client* client = clientConstructor((char*)argv[1], (char*)argv[2]);
+  Client* client = clientConstructor(server, port);
   vector<string> messages;
 
   string fileName = "client" + to_string(myPid) + ".txt";
@@ -77,6 +90,4 @@ int main(int argc, char** argv) {
   
   clientDestructor(client);
   file.close();
-
-  return 0;
 }
