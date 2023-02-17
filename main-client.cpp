@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/types.h>
+#include <sys/wait.h>
 
 #include "client.h"
 #include "message.h"
@@ -20,6 +21,11 @@ int main(int argc, char** argv) {
 
   if(pid) {
     printf("client: forked all cannonballs\n");
+
+    int status = 0;
+    int wpid;
+    while ((wpid = wait(&status)) > 0);
+    
     return 0;
   }
 
@@ -35,11 +41,11 @@ int main(int argc, char** argv) {
 
     sendToServer(client, msg);
     printf("fork %d: sent %s\n", msg->clientPid, msg->message);
-
+  
     messageDestructor(msg);
   }
   
   clientDestructor(client);
-
+  
   return 0;
 }
