@@ -1,24 +1,50 @@
-#!/bin/bash
+#  Gabriel Lüders (GRR20190172)
 
-CC=gcc
-FLAGS=-Wall -g
-LIBS=-lm
-SRC=$(wildcard *.c)
-OBJS=$(subst .c,.o,$(SRC))
-OUTPUT=program
-RM=rm -f
+# ----------------------------------------------------------------- #
+# Declaration of targets and compiling options
+CFLAGS = -Wall -g -std=c++17
+CC = g++
+LIBS = -lstdc++fs 
+OBJ_SERVER = server-main.o message.o server.o
+OBJ_CLIENT = main-client.o message.o client.o
+EXEC_SERVER = ./server
+EXEC_CLIENT = ./client
 
-all: $(OBJS)
-        $(CC) $(FLAGS) $(OBJS) -o $(OUTPUT) $(LIBS)
+# ----------------------------------------------------------------- #
+# Compilation directives
+all: ${EXEC_SERVER} ${EXEC_CLIENT}
 
-%.o: %.c
-        $(CC) $(FLAGS) -c $<
+${EXEC_SERVER}: $(OBJ_SERVER)
+	$(CC) -o ${EXEC_SERVER} $(OBJ_SERVER) $(LIBS)
 
-run:
-        ./program
+${EXEC_CLIENT}: $(OBJ_CLIENT)
+	$(CC) -o ${EXEC_CLIENT} $(OBJ_CLIENT) $(LIBS)
 
+server-main.o: server-main.cpp 
+	$(CC) -c server-main.cpp $(CFLAGS) $(LIBS)
+
+main-client.o: main-client.cpp
+	$(CC) -c main-client.cpp $(CFLAGS) $(LIBS)
+
+client.o: client.cpp client.h
+	$(CC) -c client.cpp $(CFLAGS)
+
+server.o: server.cpp server.h
+	$(CC) -c server.cpp $(CFLAGS)
+
+message.o: message.cpp message.h
+	$(CC) -c message.cpp $(CFLAGS)
+
+runServer: all
+	${EXEC_SERVER}
+
+runClient: all
+	${EXEC_CLIENT}
+
+# ----------------------------------------------------------------- #
+# Cleaning directives
 clean:
-        @$(RM) $(OBJS)
+	$(RM) *.o *.gch
 
 purge: clean
-        @$(RM) $(OUTPUT)
+	$(RM) ${EXEC_CLIENT} ${EXEC_SERVER} 

@@ -20,6 +20,11 @@ using namespace std;
 #define QUEUESIZE 5
 #define MAXHOSTNAME 30
 
+typedef struct REPORT_INFO {
+  map<int, vector<pair<int, Message>>> infos;
+  map<int, int> expectedSeqNum;
+} ReportInfo;
+
 typedef struct SERVER {
   int listenSocket;
   Message msg;
@@ -31,12 +36,11 @@ typedef struct SERVER {
   char hostname[MAXHOSTNAME];
   bool isUDP;
 
-  vector<pair<int, int>> seq;
-  int expectedSeqNum = 0;
-
+  ReportInfo* reportInfo;
+  bool* isDone;
 } Server;
 
-Server* serverConstructor(char* port, bool udp = true);
+Server* serverConstructor(char* port, bool& isDone);
 void serverDestructor(Server* server);
 void receiveFromClient(Server* server);
 void sendToClient(Server* server);

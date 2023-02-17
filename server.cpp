@@ -1,9 +1,8 @@
 #include "server.h"
 #include "message.h"
 
-Server* serverConstructor(char* port, bool udp){
+Server* serverConstructor(char* port, bool& isDone){
   Server* server = (Server*) malloc(sizeof(Server));
-  server->isUDP = udp;
 
   gethostname(server->hostname, MAXHOSTNAME);
 
@@ -21,7 +20,7 @@ Server* serverConstructor(char* port, bool udp){
   );
   server->serverAddress.sin_family = server->hostInfo->h_addrtype;
 
-  int type = udp ? SOCK_DGRAM : SOCK_STREAM;
+  int type = SOCK_DGRAM;
   server->listenSocket = socket(server->hostInfo->h_addrtype, type, 0);
   if(server->listenSocket < 0){
     printf( "Server: couldn't open listen socket\n");
@@ -38,6 +37,8 @@ Server* serverConstructor(char* port, bool udp){
     exit(1);
   }
 
+  server->reportInfo = new ReportInfo();
+  server->isDone = &isDone;
   return server;
 }
 
@@ -59,8 +60,19 @@ void receiveFromClient(Server* server){
     (socklen_t*) &i
   );
 
+  if(*(server->isDone)) return;
 
-  printf("server: received %s from %d\n", msg.message, msg.clientPid);
+  if(!(server->reportInfo->expectedSeqNum.count(msg.clientPid))){
+    server->reportInfo->expectedSeqNum[msg.clientPid] = 0;
+  }
+
+  server->reportInfo->infos[msg.clientPid].push_back(
+    pair(
+      ++(server->reportInfo->expectedSeqNum[msg.clientPid]),
+      msg
+    )
+  );
+
 }
 
 void sendToClient(Server* server){
@@ -75,7 +87,12 @@ void sendToClient(Server* server){
 }
 
 void printReport(Server* server){
-  for(int i = 0; i < server->seq.size(); i++){
-    printf( "Server: received %d at %d\n", server->seq[i].first, server->seq[i].second);
+  printf( "Server: printing report\n\n");
+  for(auto it : server->reportInfo->infos){
+    printf( "\tClient %d\n", it.first);
+    for(auto it2 : it.second){
+      printf( "\t\t%d: received %s\n", it2.first, it2.second.message);
+    }
+    printf("\n");
   }
-} 
+}
