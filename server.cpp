@@ -1,4 +1,5 @@
 #include "server.h"
+#include "message.h"
 
 Server* serverConstructor(char* port, bool udp){
   Server* server = (Server*) malloc(sizeof(Server));
@@ -47,33 +48,26 @@ void serverDestructor(Server* server){
 
 void receiveFromClient(Server* server){
   int i = sizeof(server->clientAddress);
+  Message msg;
+
   recvfrom(
     server->listenSocket,
-    server->buffer,
-    BUFSIZ,
+    &msg,
+    sizeof(Message),
     0,
     (struct sockaddr*) &(server->clientAddress),
     (socklen_t*) &i
   );
 
-  string s = string(server->buffer);
 
-  int j = s.find("[");
-  int k = s.find("]");
-  int index = atoi(s.substr(j + 1, k - j - 1).c_str());
-
-  server->seq.push_back(
-    pair(index, (server->expectedSeqNum)++)
-  );
-
-  // printf( "Server: received %s\n", server->buffer);
+  printf("server: received %s from %d\n", msg.message, msg.clientPid);
 }
 
 void sendToClient(Server* server){
   sendto(
     server->listenSocket,
-    server->buffer,
-    BUFSIZ,
+    &(server->msg),
+    sizeof(Message),
     0,
     (struct sockaddr*) &(server->clientAddress),
     sizeof(server->clientAddress)

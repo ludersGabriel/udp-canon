@@ -4,7 +4,6 @@
 
 Client* clientConstructor(char* svName, char* port, bool udp) {
   Client *client = (Client*) malloc(sizeof(Client));
-  client->isUDP = udp;
 
   client->host = svName;
   client->hp = gethostbyname(client->host);
@@ -37,30 +36,19 @@ void clientDestructor(Client* client) {
   free(client);
 }
 
-void sendToServer(Client* client, char* message) {
+void sendToServer(Client* client, Message* msg) {
+
   int ret = sendto(
     client->socketDescriptor,
-    message,
-    strlen(message) + 1,
+    msg,
+    sizeof(Message),
     0,
     (struct sockaddr*) &(client->address),
     sizeof(client->address)
   );
-  if(ret != strlen(message) + 1){
-    printf( "client: couldn't send message\n");
+
+  if(ret != sizeof(Message)){
+    printf("client: couldn't whole send message\n");
     exit(1);
   }
-}
-
-void waitForServer(Client* client) {
-  int i = sizeof(client->address);
-  recvfrom(
-    client->socketDescriptor,
-    client->buffer,
-    BUFSIZ,
-    0,
-    (struct sockaddr*) &(client->address),
-    (socklen_t*) &i
-  );
-  printf( "client: received '%s'\n", client->buffer);
 }

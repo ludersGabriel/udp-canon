@@ -13,6 +13,7 @@
 
 #include <iostream>
 #include <bits/stdc++.h>
+#include "message.h"
 
 using namespace std;
 
@@ -21,7 +22,7 @@ using namespace std;
 
 typedef struct SERVER {
   int listenSocket;
-  char buffer[BUFSIZ + 1];
+  Message msg;
 
   struct sockaddr_in serverAddress;
   struct sockaddr_in clientAddress;
@@ -37,8 +38,6 @@ typedef struct SERVER {
 
 Server* serverConstructor(char* port, bool udp = true);
 void serverDestructor(Server* server);
-void listenToClients(Server* server);
-void acceptClient(Server* server);
 void receiveFromClient(Server* server);
 void sendToClient(Server* server);
 void printReport(Server* server);

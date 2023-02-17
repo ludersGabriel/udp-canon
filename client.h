@@ -10,6 +10,7 @@
 // tudo que tem a ver com internet - Elias
 #include <netinet/in.h>
 #include <netdb.h> // sistema DNS
+#include "message.h"
 
 typedef struct CLIENT {
     int socketDescriptor;
@@ -18,13 +19,11 @@ typedef struct CLIENT {
     struct hostent *hp;
     char buffer[BUFSIZ + 1];
     char *host;
-    bool isUDP;
 } Client; 
 
 
 Client* clientConstructor(char* svName, char* port, bool udp = true);
 void clientDestructor(Client* client);
-void sendToServer(Client* client, char* message);
-void waitForServer(Client* client);
+void sendToServer(Client* client, Message* msg);
 
 #endif
