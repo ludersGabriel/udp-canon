@@ -36,7 +36,9 @@ typedef struct SERVER {
   char hostname[MAXHOSTNAME];
   bool isUDP;
 
+  int totalClientsTalking = 0;
   int totalMessagesExpected = 0;
+  int totalLostMessages = 0;
   ReportInfo* reportInfo;
   bool* isDone;
 } Server;

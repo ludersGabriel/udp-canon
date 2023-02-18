@@ -1,5 +1,11 @@
 
 #include <stdlib.h>
+#include <iostream>
+#include <fstream> 
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
+
 #include "client.h"
 
 Client* clientConstructor(char* svName, char* port, bool udp) {
@@ -51,4 +57,108 @@ void sendToServer(Client* client, Message* msg) {
     printf("client: couldn't send whole message\n");
     exit(1);
   }
+}
+
+void parentMain(vector<int> pids) {
+  printf("client: forked all clients\n");
+
+  int status = 0;
+  int wpid;
+  while ((wpid = wait(&status)) > 0);
+  printf("\nclient: printing reports for each fork\n");
+
+  // print reports here
+  for(long unsigned int i = 0; i < pids.size(); i++){
+    cout << endl;
+    string fileName = "client" + to_string(pids[i]) + ".txt";
+    ifstream file(fileName);
+    string line;
+    while(getline(file, line)){
+      cout << line << endl;
+    }
+    file.close();
+    remove(fileName.c_str());
+  }
+
+  int totalMessages = 0;
+  printf("\nclient: printing sent report\n\n");
+  for(auto i : pids){
+    string sentReportName = "client" + to_string(i) + "SentReport.txt";
+    ifstream sentReport(sentReportName);
+
+    string line;
+    int count = 1;
+    while(getline(sentReport, line)){
+      cout << line << endl;
+
+      if(count == 3){
+        int num = atoi(line.substr(line.find(':') + 2, line.length() - line.find(':')).c_str());
+        totalMessages += num;
+        count = 0;
+      }
+
+      count++;
+    }
+    cout << endl;
+    
+    sentReport.close();
+    remove(sentReportName.c_str());
+  }
+
+  printf("client: sent %d messages\n\n", totalMessages);
+}
+
+void childMain(int balls, char* server, char* port){
+  int cannonballs = balls;
+  int myPid = getpid();
+
+  Client* client = clientConstructor(server, port);
+  vector<string> messages;
+
+  string fileName = "client" + to_string(myPid) + ".txt";
+  ofstream file(fileName);
+  
+  string sentReportName = "client" + to_string(myPid) + "SentReport.txt";
+  ofstream sentReport(sentReportName, ios::app);
+
+  file << "\tClient " << myPid << endl;
+
+  int i;
+  for(i = 1; i <= cannonballs; i++){
+    char text[150];
+    sprintf(text, "cannonball %d", i);
+    Message* msg = messageConstructor(text, i, myPid);
+
+    sendToServer(client, msg);
+    sprintf(text, "\t\tsentId %d: sent %s\n", i, msg->message);
+    file << text;
+
+    messages.push_back(text);
+    messageDestructor(msg);
+  }
+  
+  sentReport << "\tClient " << myPid << endl;
+  sentReport << "\t\tExpected to send: " << cannonballs << endl;
+  sentReport << "\t\tMessages sent: " << i - 1 << endl;
+
+  clientDestructor(client);
+  file.close();
+  sentReport.close();
+}
+
+void handshake(char* server, char* port, char* clients, char* cannonbals) {
+  Client* client = clientConstructor(server, port);
+
+  char text[80];
+  sprintf(
+    text, 
+    "expected %d cannonballs from %d clients each", 
+    atoi(cannonbals), 
+    atoi(clients)
+  );
+  printf("client: %s\n", text);
+  Message* msg = messageConstructor(text, atoi(cannonbals), atoi(clients));
+  sendToServer(client, msg);
+
+  clientDestructor(client);
 }

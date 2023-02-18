@@ -12,6 +12,10 @@
 #include <netdb.h> // sistema DNS
 #include "message.h"
 
+#include <bits/stdc++.h>
+
+using namespace std;
+
 typedef struct CLIENT {
     int socketDescriptor;
     int numb;
@@ -25,5 +29,8 @@ typedef struct CLIENT {
 Client* clientConstructor(char* svName, char* port, bool udp = true);
 void clientDestructor(Client* client);
 void sendToServer(Client* client, Message* msg);
+void parentMain(vector<int> pids);
+void childMain(int balls, char* server, char* port);
+void handshake(char* server, char* port, char* clients, char* cannonbals);
 
 #endif

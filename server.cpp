@@ -62,9 +62,11 @@ void receiveFromClient(Server* server){
 
   if(server->totalMessagesExpected == 0){
     server->totalMessagesExpected = msg.messageId;
+    server->totalClientsTalking = msg.clientPid;
     printf( "server: %s\n", msg.message);
     return;
   }
+
   if(*(server->isDone)) return;
 
   if(!(server->reportInfo->expectedSeqNum.count(msg.clientPid))){
@@ -96,7 +98,7 @@ void printReport(Server* server){
   for(auto it : server->reportInfo->infos){
     printf( "\tClient %d\n", it.first);
     for(auto it2 : it.second){
-      printf( "\t\t%d: received %s\n", it2.first, it2.second.message);
+      printf( "\t\treceivedId %d: received %s\n", it2.first, it2.second.message);
     }
     printf("\n");
   }
@@ -112,12 +114,28 @@ void writeReceivedFile(Server* server){
 }
 
 void printLossReport(Server* server){
-  printf( "\nserver: printing loss report\n\n");
+  printf( "server: printing loss report\n\n");
   for(auto it : server->reportInfo->infos){
     printf( "\tClient %d\n", it.first);
     printf(
-      "\t\tHow many lost packets: %ld\n\n", 
-      server->totalMessagesExpected - it.second.size()
+      "\t\tHow many packets received: %ld\n",
+      it.second.size()
     );
+    printf(
+      "\t\tHow many packets expected: %d\n",
+      server->totalMessagesExpected
+    );
+    int lost = server->totalMessagesExpected - it.second.size();
+    printf(
+      "\t\tHow many packets lost: %d\n\n", 
+      lost
+    );
+
+    server->totalLostMessages += lost;
   }
+
+  printf(
+    "server: lost %d messages\n\n",
+    server->totalLostMessages
+  );
 }
