@@ -2,7 +2,7 @@
 #define MESSAGE_H
 
 typedef struct MESSAGE {
-    char message[30];
+    char message[100];
     int messageId;
     int clientPid;
 } Message;

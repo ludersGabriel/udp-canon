@@ -16,6 +16,7 @@ using namespace std;
 
 void parentMain(vector<int> pids);
 void childMain(int balls, char* server, char* port);
+void handshake(char* server, char* port, char* cannonbals);
 
 int main(int argc, char** argv) {
   if(argc != 5) {
@@ -23,31 +24,38 @@ int main(int argc, char** argv) {
     exit(1);
   }
 
+  char* server = argv[1];
+  char* port = argv[2];
+  char* clients = argv[3];
+  char* cannonballs = argv[4];
+
+  handshake(server, port, cannonballs);
+
   int pid = 0;
-  int clients = atoi(argv[3]);
+  int clientsAmount = atoi(clients);
   vector<int> pids;
   do {
     pid = fork();
     pids.push_back(pid);
-  }while(pid && --clients);
+  }while(pid && --clientsAmount);
 
   if(pid) {
     parentMain(pids);
     return 0;
   }
 
-  childMain(atoi(argv[4]), argv[1], argv[2]);
+  childMain(atoi(cannonballs), server, port);
 
   return 0;
 }
 
 void parentMain(vector<int> pids) {
-  printf("client: forked all cannonballs\n");
+  printf("client: forked all clients\n");
 
   int status = 0;
   int wpid;
   while ((wpid = wait(&status)) > 0);
-  printf("client: printing reports for each fork\n");
+  printf("\nclient: printing reports for each fork\n");
 
   // print reports here
   for(long unsigned int i = 0; i < pids.size(); i++){
@@ -59,6 +67,7 @@ void parentMain(vector<int> pids) {
       cout << line << endl;
     }
     file.close();
+    remove(fileName.c_str());
   }
   cout << endl;
 }
@@ -76,7 +85,7 @@ void childMain(int balls, char* server, char* port){
   file << "\tClient " << myPid << endl;
 
   for(int i = 1; i <= cannonballs; i++){
-    char text[50];
+    char text[150];
     sprintf(text, "cannonball %d", i);
     Message* msg = messageConstructor(text, i, myPid);
 
@@ -90,4 +99,16 @@ void childMain(int balls, char* server, char* port){
   
   clientDestructor(client);
   file.close();
+}
+
+void handshake(char* server, char* port, char* cannonbals) {
+  Client* client = clientConstructor(server, port);
+
+  char text[80];
+  sprintf(text, "expected cannonballs from each client = %d", atoi(cannonbals));
+  printf("client: %s\n", text);
+  Message* msg = messageConstructor(text, atoi(cannonbals), getpid());
+  sendToServer(client, msg);
+
+  clientDestructor(client);
 }

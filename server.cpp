@@ -60,6 +60,11 @@ void receiveFromClient(Server* server){
     (socklen_t*) &i
   );
 
+  if(server->totalMessagesExpected == 0){
+    server->totalMessagesExpected = msg.messageId;
+    printf( "server: %s\n", msg.message);
+    return;
+  }
   if(*(server->isDone)) return;
 
   if(!(server->reportInfo->expectedSeqNum.count(msg.clientPid))){
@@ -87,7 +92,7 @@ void sendToClient(Server* server){
 }
 
 void printReport(Server* server){
-  printf( "Server: printing report\n\n");
+  printf("\nserver: printing report\n\n");
   for(auto it : server->reportInfo->infos){
     printf( "\tClient %d\n", it.first);
     for(auto it2 : it.second){
@@ -99,9 +104,20 @@ void printReport(Server* server){
 
 void writeReceivedFile(Server* server){
   ofstream file("packets-received.csv");
-  file << "Client Id, amount received\n";
+  file << "clientId, amountReceived\n";
 
   for(auto it : server->reportInfo->infos){
     file << it.first << ", " << it.second.size() << endl;
+  }
+}
+
+void printLossReport(Server* server){
+  printf( "\nserver: printing loss report\n\n");
+  for(auto it : server->reportInfo->infos){
+    printf( "\tClient %d\n", it.first);
+    printf(
+      "\t\tHow many lost packets: %ld\n\n", 
+      server->totalMessagesExpected - it.second.size()
+    );
   }
 }

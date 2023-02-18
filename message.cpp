@@ -4,7 +4,7 @@
 #include "message.h"
 
 Message* messageConstructor(char* msg, int id, int pid) {
-  if(strlen(msg) > 30) {
+  if(strlen(msg) > 100) {
     printf("message: message too long\n");
     return NULL;
   }

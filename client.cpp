@@ -48,7 +48,7 @@ void sendToServer(Client* client, Message* msg) {
   );
 
   if(ret != sizeof(Message)){
-    printf("client: couldn't whole send message\n");
+    printf("client: couldn't send whole message\n");
     exit(1);
   }
 }

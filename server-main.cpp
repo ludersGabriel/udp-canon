@@ -22,6 +22,7 @@ int main() {
   action.sa_flags = 0 ;
   sigaction (SIGALRM, &action, 0);
 
+  printf("server: now waiting messages...\n");
   for(;!isDone;){
     alarm(5);
     receiveFromClient(server);
@@ -30,6 +31,7 @@ int main() {
   }
 
   printReport(server);
+  printLossReport(server);
   serverDestructor(server);
   writeReceivedFile(server);
 
