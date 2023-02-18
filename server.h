@@ -45,5 +45,6 @@ void serverDestructor(Server* server);
 void receiveFromClient(Server* server);
 void sendToClient(Server* server);
 void printReport(Server* server);
+void writeReceivedFile(Server* server);
 
 #endif

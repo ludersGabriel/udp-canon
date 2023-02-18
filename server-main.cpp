@@ -31,6 +31,7 @@ int main() {
 
   printReport(server);
   serverDestructor(server);
+  writeReceivedFile(server);
 
   return 0;
 }

@@ -96,3 +96,12 @@ void printReport(Server* server){
     printf("\n");
   }
 }
+
+void writeReceivedFile(Server* server){
+  ofstream file("packets-received.csv");
+  file << "Client Id, amount received\n";
+
+  for(auto it : server->reportInfo->infos){
+    file << it.first << ", " << it.second.size() << endl;
+  }
+}
