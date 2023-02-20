@@ -48,7 +48,7 @@ section div {
   flex-direction: column;
   justify-content: center;
 
-  width: 60%;
+  width: 80%;
 }
 
 section div h3 {
@@ -68,7 +68,7 @@ section div h3 {
 .serverImages {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
 
