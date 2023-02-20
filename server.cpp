@@ -199,12 +199,17 @@ void verifyOrder(Server* server){
 void printFooter(Server* server){
   if(server->silent) return;
 
+  float totalMessages = (float) server->totalMessagesExpected * server->totalClientsTalking;
+  printf(
+    "server: total of %0.2f messages expected\n",
+    totalMessages
+  );
+
   printf(
     "server: lost %d messages\n", 
     server->totalLostMessages
   );
 
-  float totalMessages = (float) server->totalMessagesExpected * server->totalClientsTalking;
   printf(
     "server: packet loss rate of %0.2f%%\n",
     (float) server->totalLostMessages / totalMessages * 100
