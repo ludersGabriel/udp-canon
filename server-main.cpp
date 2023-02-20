@@ -1,6 +1,7 @@
 #include <iostream>
 #include <bits/stdc++.h>
 #include <signal.h>
+#include <unistd.h>
 
 #include "server.h"
 #include "message.h"
@@ -13,8 +14,16 @@ void resolveTimer(int signum){
   isDone = true;
 }
 
-int main() {
-  Server* server = serverConstructor((char*)"8080", isDone);
+int main(int argc, char** argv) {
+  if(argc < 2 || argc > 3) {
+    printf("Usage: server <port> [silent]\n");
+    exit(1);
+  }
+  
+  char* port = argv[1];
+  bool silent = argc == 3 ? true : false;
+
+  Server* server = serverConstructor((char*)port, isDone, silent);
 
   struct sigaction action;
   action.sa_handler = resolveTimer;
@@ -22,7 +31,8 @@ int main() {
   action.sa_flags = 0 ;
   sigaction (SIGALRM, &action, 0);
 
-  printf("server: now waiting messages...\n");
+  if(!silent)
+    printf("server: now waiting messages...\n");
   for(;!isDone;){
     alarm(5);
     receiveFromClient(server);
@@ -32,8 +42,12 @@ int main() {
 
   printReport(server);
   printLossReport(server);
-  serverDestructor(server);
+  verifyOrder(server);
   writeReceivedFile(server);
+  appendGeneralReport(server);
+  printFooter(server);
+  
+  serverDestructor(server);
 
   return 0;
 }

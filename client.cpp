@@ -8,7 +8,7 @@
 
 #include "client.h"
 
-Client* clientConstructor(char* svName, char* port, bool udp) {
+Client* clientConstructor(char* svName, char* port) {
   Client *client = (Client*) malloc(sizeof(Client));
 
   client->host = svName;
@@ -27,7 +27,7 @@ Client* clientConstructor(char* svName, char* port, bool udp) {
 
   client->address.sin_port = htons(atoi(port));
 
-  int type = udp ? SOCK_DGRAM : SOCK_STREAM;
+  int type = SOCK_DGRAM;
   client->socketDescriptor = socket(client->hp->h_addrtype, type, 0);
   if(client->socketDescriptor < 0){
     printf( "client: not able to open socket");
@@ -59,21 +59,25 @@ void sendToServer(Client* client, Message* msg) {
   }
 }
 
-void parentMain(vector<int> pids) {
-  printf("client: forked all clients\n");
+void parentMain(vector<int> pids, bool silent) {
+  if(!silent)
+    printf("client: forked all clients\n");
 
   int status = 0;
   int wpid;
   while ((wpid = wait(&status)) > 0);
-  printf("\nclient: printing reports for each fork\n");
+
+  if(!silent)
+    printf("\nclient: printing reports for each fork\n");
 
   // print reports here
   for(long unsigned int i = 0; i < pids.size(); i++){
-    cout << endl;
+    if(!silent)
+      cout << endl;
     string fileName = "client" + to_string(pids[i]) + ".txt";
     ifstream file(fileName);
     string line;
-    while(getline(file, line)){
+    while(!silent && getline(file, line)){
       cout << line << endl;
     }
     file.close();
@@ -81,7 +85,8 @@ void parentMain(vector<int> pids) {
   }
 
   int totalMessages = 0;
-  printf("\nclient: printing sent report\n\n");
+  if(!silent)
+    printf("\nclient: printing sent report\n\n");
   for(auto i : pids){
     string sentReportName = "client" + to_string(i) + "SentReport.txt";
     ifstream sentReport(sentReportName);
@@ -89,7 +94,8 @@ void parentMain(vector<int> pids) {
     string line;
     int count = 1;
     while(getline(sentReport, line)){
-      cout << line << endl;
+      if(!silent)
+        cout << line << endl;
 
       if(count == 3){
         int num = atoi(line.substr(line.find(':') + 2, line.length() - line.find(':')).c_str());
@@ -99,16 +105,18 @@ void parentMain(vector<int> pids) {
 
       count++;
     }
-    cout << endl;
+    if(!silent)
+      cout << endl;
     
     sentReport.close();
     remove(sentReportName.c_str());
   }
 
-  printf("client: sent %d messages\n\n", totalMessages);
+  if(!silent)
+    printf("client: sent %d messages\n\n", totalMessages);
 }
 
-void childMain(int balls, char* server, char* port){
+void childMain(int balls, char* server, char* port, bool silent){
   int cannonballs = balls;
   int myPid = getpid();
 
@@ -146,7 +154,7 @@ void childMain(int balls, char* server, char* port){
   sentReport.close();
 }
 
-void handshake(char* server, char* port, char* clients, char* cannonbals) {
+void handshake(char* server, char* port, char* clients, char* cannonbals, bool silent) {
   Client* client = clientConstructor(server, port);
 
   char text[80];
@@ -156,7 +164,8 @@ void handshake(char* server, char* port, char* clients, char* cannonbals) {
     atoi(cannonbals), 
     atoi(clients)
   );
-  printf("client: %s\n", text);
+  if(!silent)
+    printf("client: %s\n", text);
   Message* msg = messageConstructor(text, atoi(cannonbals), atoi(clients));
   sendToServer(client, msg);
 

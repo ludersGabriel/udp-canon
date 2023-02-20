@@ -18,19 +18,23 @@ using namespace std;
 
 typedef struct CLIENT {
     int socketDescriptor;
-    int numb;
     struct sockaddr_in address;
     struct hostent *hp;
-    char buffer[BUFSIZ + 1];
     char *host;
 } Client; 
 
 
-Client* clientConstructor(char* svName, char* port, bool udp = true);
+Client* clientConstructor(char* svName, char* port);
 void clientDestructor(Client* client);
 void sendToServer(Client* client, Message* msg);
-void parentMain(vector<int> pids);
-void childMain(int balls, char* server, char* port);
-void handshake(char* server, char* port, char* clients, char* cannonbals);
+void parentMain(vector<int> pids, bool silent = false);
+void childMain(int balls, char* server, char* port, bool silent = false);
+void handshake(
+    char* server, 
+    char* port, 
+    char* clients, 
+    char* cannonbals, 
+    bool silent = false
+);
 
 #endif

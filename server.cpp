@@ -1,9 +1,10 @@
 #include "server.h"
 #include "message.h"
 
-Server* serverConstructor(char* port, bool& isDone){
+Server* serverConstructor(char* port, bool& isDone, bool silent){
   Server* server = (Server*) malloc(sizeof(Server));
 
+  server->silent = silent;
   gethostname(server->hostname, MAXHOSTNAME);
 
   server->hostInfo = gethostbyname(server->hostname);
@@ -21,14 +22,14 @@ Server* serverConstructor(char* port, bool& isDone){
   server->serverAddress.sin_family = server->hostInfo->h_addrtype;
 
   int type = SOCK_DGRAM;
-  server->listenSocket = socket(server->hostInfo->h_addrtype, type, 0);
-  if(server->listenSocket < 0){
+  server->sockDescr = socket(server->hostInfo->h_addrtype, type, 0);
+  if(server->sockDescr < 0){
     printf( "Server: couldn't open listen socket\n");
     exit(1);
   }
 
   int ret = bind(
-    server->listenSocket,
+    server->sockDescr,
     (struct sockaddr*) &(server->serverAddress),
     sizeof(server->serverAddress)
   );
@@ -43,17 +44,16 @@ Server* serverConstructor(char* port, bool& isDone){
 }
 
 void serverDestructor(Server* server){
-  close(server->listenSocket);
+  close(server->sockDescr);
   free(server);
 }
 
 void receiveFromClient(Server* server){
   int i = sizeof(server->clientAddress);
-  Message msg;
 
   recvfrom(
-    server->listenSocket,
-    &msg,
+    server->sockDescr,
+    &(server->msg),
     sizeof(Message),
     0,
     (struct sockaddr*) &(server->clientAddress),
@@ -61,22 +61,23 @@ void receiveFromClient(Server* server){
   );
 
   if(server->totalMessagesExpected == 0){
-    server->totalMessagesExpected = msg.messageId;
-    server->totalClientsTalking = msg.clientPid;
-    printf( "server: %s\n", msg.message);
+    server->totalMessagesExpected = (server->msg).messageId;
+    server->totalClientsTalking = (server->msg).clientPid;
+    if(!server->silent)
+      printf( "server: %s\n", (server->msg).message);
     return;
   }
 
   if(*(server->isDone)) return;
 
-  if(!(server->reportInfo->expectedSeqNum.count(msg.clientPid))){
-    server->reportInfo->expectedSeqNum[msg.clientPid] = 0;
+  if(!(server->reportInfo->expectedSeqNum.count((server->msg).clientPid))){
+    server->reportInfo->expectedSeqNum[(server->msg).clientPid] = 0;
   }
 
-  server->reportInfo->infos[msg.clientPid].push_back(
+  server->reportInfo->infos[(server->msg).clientPid].push_back(
     pair(
-      ++(server->reportInfo->expectedSeqNum[msg.clientPid]),
-      msg
+      ++(server->reportInfo->expectedSeqNum[(server->msg).clientPid]),
+      (server->msg)
     )
   );
 
@@ -84,7 +85,7 @@ void receiveFromClient(Server* server){
 
 void sendToClient(Server* server){
   sendto(
-    server->listenSocket,
+    server->sockDescr,
     &(server->msg),
     sizeof(Message),
     0,
@@ -94,6 +95,8 @@ void sendToClient(Server* server){
 }
 
 void printReport(Server* server){
+  if(server->silent) return;
+
   printf("\nserver: printing report\n\n");
   for(auto it : server->reportInfo->infos){
     printf( "\tClient %d\n", it.first);
@@ -114,8 +117,14 @@ void writeReceivedFile(Server* server){
 }
 
 void printLossReport(Server* server){
-  printf( "server: printing loss report\n\n");
+  if(!server->silent)
+    printf( "server: printing loss report\n\n");
   for(auto it : server->reportInfo->infos){
+    int lost = server->totalMessagesExpected - it.second.size();
+    server->totalLostMessages += lost;
+
+    if(server->silent) continue;
+
     printf( "\tClient %d\n", it.first);
     printf(
       "\t\tHow many packets received: %ld\n",
@@ -125,17 +134,74 @@ void printLossReport(Server* server){
       "\t\tHow many packets expected: %d\n",
       server->totalMessagesExpected
     );
-    int lost = server->totalMessagesExpected - it.second.size();
     printf(
       "\t\tHow many packets lost: %d\n\n", 
       lost
     );
-
-    server->totalLostMessages += lost;
   }
+}
+
+void appendTotalMessagesToLost(Server* server){
+  ofstream file("total-messages-to-lost.csv", ios::app);
+  file << server->totalMessagesExpected * server->totalClientsTalking 
+  << ", " << server->totalLostMessages << endl;
+
+  file.close();
+}
+
+void appendGeneralReport(Server* server){
+  ofstream file("general-report.csv", ios::app);
+  file << server->totalClientsTalking << ", " 
+  << server->totalMessagesExpected * server->totalClientsTalking << ", " 
+  << server->totalLostMessages << endl;
+
+  file.close();
+}
+
+void verifyOrder(Server* server){
+  if(!server->silent)
+    printf("server: out of order report\n\n");
+  for(auto it : server->reportInfo->infos){
+    int max = 0;
+    vector<int> received;
+    int clientId = it.first;
+
+    bool printHeader = true;
+    for(unsigned long int i = 0; i < it.second.size(); i++){
+      auto it2 = it.second[i];
+
+      int id = it2.second.messageId;
+      if(id > max) max = id;
+      else if(id < max){
+        if(printHeader && !server->silent){
+          printf("\tClient %d\n", clientId);
+          printHeader = false;
+        }
+        server->totalOutOfOrderMessages += 1;
+
+        if(server->silent) continue;
+        for(unsigned long int j = i - 2; j < i + 2; j++){
+          if(j < 0 || j >= it.second.size()) continue;
+          printf(
+            "\t\treceivedId = %d, cannonballId = %d\n", 
+            it.second[j].first, 
+            it.second[j].second.messageId
+          );
+        }
+      }
+    }
+  }
+}
+
+void printFooter(Server* server){
+  if(server->silent) return;
 
   printf(
-    "server: lost %d messages\n\n",
+    "server: lost %d messages\n", 
     server->totalLostMessages
+  );
+  printf(
+    "server: received %d messages out of order\n", 
+    server->totalOutOfOrderMessages
   );
 }

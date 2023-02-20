@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Document</title>
+</head>
+<body>
+  <header>
+    <h1>Relatório Trabalho 1 de Redes II</h1>
+    <p>Eduardo Vudala</p>
+    <p>Gabriel Lüders</p>
+  </header>
+  <section>
+    <div>
+      <h2>1. Introdução</h2>
+      <p>
+        Este relatório tem como objetivo apresentar o trabalho realizado na disciplina de Redes II, 
+        ministrada pelo professor Elias P. Duarte Jr., no semestre 2022/2.
+      </p>
+      <p>
+        <br>
+        O trabalho consiste em implementar um canhão UDP com o intuito de medir a taxa aproximada
+        de perda de pacote em uma rede, além de verificar se mensagens são entregues fora de ordem.
+      </p>
+    </div>
+    <div>
+      <h2>2. Implementação</h2>
+      <p>
+        O trabalho foi implementado em C++ e consiste em bibliotecas para o cliente, servidor e
+        o tipo de mensagem sendo transmitida, além de duas mains, uma para o cliente e outra
+        para o servidor, que utilizam a API de sockets do C++ para comunicar datagramas UDP.
+      </p>
+
+      <h3>2.1. Mensagem</h3>
+      <p>
+        A mensagem é uma struct composta por um ID de mensagem, um ID de cliente (que é basicamente
+        o PID do processo enviando aquele datagrama) e uma string de 100 caracteres:
+      </p>
+
+      <div class="imgWrapper">
+        <img src="images/message.png" alt="estrutura das mensagens">
+      </div>
+
+      <p>
+        As mensagens são enviadas em um datagrama UDP via função sendto e recebidas pela função
+        recvfrom da API de sockets do C++. 
+      </p>
+      
+      <h3>2.2. Cliente</h3>
+      <p>
+        O cliente é composto por um gerenciador responsável por controlar uma série de clientes filhos,
+        gerados via fork, que são responsáveis por enviar mensagens para o servidor. 
+        Cada filho envia o mesmo número de mensagens ao servidor, com IDs de mensagem sequenciais
+        - de 1 até o número máximo enviado por cada um -, de maneira concorrente.
+      </p>
+      <p>
+        <br>
+        Cada fork é dado por uma estrutura constituida por um descritor de socket por onde realizar
+        a comunicação com o servidor, o endereço do servidor, uma entendidade de host, 
+        uma string que representa o nome do servidor e uma main responsável pela comunicação:
+      </p>
+      
+      <div class="imgWrapper">
+        <img src="images/client.png" alt="estutura do cliente">
+      </div>
+      
+      <p>
+        Ao passo que o gerenciador é uma main própria responsável por gerar os filhos e 
+        imprimir os relatórios após todos os filhos terminarem de rodar.
+      </p>
+      
+      <h3>2.3. Servidor</h3>
+      <p>
+        O servidor é um servidor UDP comum que recebe mensagens da forma apresentada acima, 
+        trata essas mensagens, responde cada uma e, após um timeout de 5 segundos, imprime
+        os relatórios de mensagens recebidas, perdidas e fora de ordem.
+      </p>
+
+      <p>
+        <br>
+        A estrutura do servidor é dada por um descritor de socket, um buffer para a mensagem
+        recebida, o endereço do servidor, o endereço do cliente, uma entidade de host, uma string
+        que representa o nome do servidor, um booleano que indica se o servidor deve imprimir 
+        mensagens na tela, o total de clientes conversando, o total de mensagens esperadas, o total
+        de mensagens perdidas e o total de mensagens fora de ordem. Além disso, também
+        possui uma esturtura que representa as informações das mensagens para tratamento 
+        e produção de relatórios e um booleano que indica que o alarme do timeout foi disparado:
+      </p>
+
+      <div class="serverImages">
+        <div class="imgWrapper">
+          <img src="images/server.png" alt="estutura do servidor">
+        </div>
+        <div>
+          <img src="images/reportInfo.png" alt="estutura do relatório">
+        </div>
+      </div>
+
+      <h3>2.4. Comunicação</h3>
+    </div>
+  </section>
+</body>
+</html>

@@ -26,7 +26,7 @@ typedef struct REPORT_INFO {
 } ReportInfo;
 
 typedef struct SERVER {
-  int listenSocket;
+  int sockDescr;
   Message msg;
 
   struct sockaddr_in serverAddress;
@@ -34,21 +34,26 @@ typedef struct SERVER {
 
   struct hostent* hostInfo;
   char hostname[MAXHOSTNAME];
-  bool isUDP;
+  bool silent;
 
   int totalClientsTalking = 0;
   int totalMessagesExpected = 0;
   int totalLostMessages = 0;
+  int totalOutOfOrderMessages = 0;
   ReportInfo* reportInfo;
   bool* isDone;
 } Server;
 
-Server* serverConstructor(char* port, bool& isDone);
+Server* serverConstructor(char* port, bool& isDone, bool silent);
 void serverDestructor(Server* server);
 void receiveFromClient(Server* server);
 void sendToClient(Server* server);
 void printReport(Server* server);
 void writeReceivedFile(Server* server);
 void printLossReport(Server* server);
+void appendTotalMessagesToLost(Server* server);
+void appendGeneralReport(Server* server);
+void verifyOrder(Server* server);
+void printFooter(Server* server);
 
 #endif
