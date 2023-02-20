@@ -1,7 +1,7 @@
 totalClients=(1 2 4 8 16 32 64 128 256)
 totalMessages=(100 200 400 800 1600 3200 6400)
 
-echo "totalClients, totalMessages, totalMessagesLost" > general-report.csv
+echo "totalClients, totalMessages, totalMessagesLost, lossRate" > general-report.csv
 
 for i in "${totalClients[@]}"
 do

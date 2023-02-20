@@ -150,9 +150,13 @@ void appendTotalMessagesToLost(Server* server){
 
 void appendGeneralReport(Server* server){
   ofstream file("general-report.csv", ios::app);
+  float totalMessages = (float) server->totalMessagesExpected * server->totalClientsTalking;
+  float totalLost = (float) server->totalLostMessages;
+  float lossRate = totalLost / totalMessages * 100;
   file << server->totalClientsTalking << ", " 
-  << server->totalMessagesExpected * server->totalClientsTalking << ", " 
-  << server->totalLostMessages << endl;
+  << totalMessages << ", " 
+  << totalLost << ", "
+  << lossRate << endl;
 
   file.close();
 }
@@ -199,8 +203,15 @@ void printFooter(Server* server){
     "server: lost %d messages\n", 
     server->totalLostMessages
   );
+
+  float totalMessages = (float) server->totalMessagesExpected * server->totalClientsTalking;
   printf(
-    "server: received %d messages out of order\n", 
+    "server: packet loss rate of %0.2f%%\n",
+    (float) server->totalLostMessages / totalMessages * 100
+  );
+
+  printf(
+    "server: received %d messages out of order\n\n", 
     server->totalOutOfOrderMessages
   );
 }
