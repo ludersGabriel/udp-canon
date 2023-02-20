@@ -100,6 +100,96 @@
       </div>
 
       <h3>2.4. Comunicação</h3>
+      <p>
+        Inicialmente, o gerenciador e o servidor realizam um handshake no qual a quantidade de 
+        clientes a serem abertos e a quantidade de mensagens por cliente são enviadas ao servidor.
+        Após, o gerente faz o fork de todos os clientes que iniciam comunicação com o servidor 
+        imediamente.
+        <br><br>
+        Cada cliente envia X mensagens para o servidor com um ID de mensagem sequencial, 
+        incrementado um a um. O servidor recebe as mensagens, trata e responde cada uma. Os clientes,
+        contudo, não esperam as respostas do servidor para enviar a próxima mensagem. Portanto, a 
+        resposta que o servidor realiza é apenas para simular o load de uma comunicação real, além
+        dos processamentos já feitos.
+      </p>
+      <p>
+        <br>
+        Quando todos os clientes terminam de enviar suas mensagens, o servidor finaliza o 
+        loop de escuta após um timeout de 5 segundos. Em seguida, imprime os relatórios e 
+        escreve os arquivos utilizados para tratamentos finais e geração de gráficos. 
+      </p>
+      <p>
+        <br>
+        No mais, as mensagens são enviadas utilizando sendTo e recebidas utilizando recvFrom:  
+      </p>
+
+      <div class="communication">
+        <div class="imgWrapper serverSend">
+          <img src="images/sendToClient.png" alt="envio para o cliente do server">
+        </div>
+        <div class="imgWrapper clientSend">
+          <img src="images/sendtoServer.png" alt="envio do cliente para o server">
+        </div>
+        <div class="imgWrapper receive">
+          <img src="images/receiveFromClient.png" alt="recebimento pelo servidor">
+        </div>
+      </div>
+    </div>
+    <div>
+      <h2>3. Testes</h2>
+      <p>
+        Os testes feitos foram realizados com as máquias h29 e h30 do laboratório 1/2 do 
+        Dinf, assim como nas máquinas pessoais dos integrantes do grupo.
+      </p>
+      <p>
+        <br>
+        Os testes constituem em uma bateria de comunicações com 
+        diferentes quantidades de clientes e mensagens por clientes. Fizemos dessa maneira
+        com o objetivo de ser exaustivo e não deixar dúvidas sobre os resultados.
+        <br><br>
+        Há um script run.sh que automatiza a execução nas máquinas pessoais e que demonstra
+        o que foi feito nas do laboratório. Logs de execução e os arquivos fonte estão 
+        disponíveis abaixo. 
+      </p>
+    </div>
+    <div>
+      <h2>4. Resultados</h2>
+      <p>
+        Os resultados obtidos foram curiosos. A equipe percebeu que a comunicação entre duas
+        máquinas diferentes e a comunicação nas máquinas pessoas dos integrantes do grupo
+        não apresentaram resutados muito diferentes.
+        <br><br>
+        Apesar de a comunicação nas máquinas pessoais nem usar a placa de rede, notamos uma grande
+        taxa de perda de pacotes quando o número de clientes era muito alto ou muitas mensagens
+        estavam sendo enviadas por apenas um cliente. O mesmo ocorreu nas máquinas do laboratório,
+        levando o grupo a acreditar que o IP não é responsável pelas perdas, mas sim a saturação
+        do buffer UDP.
+        <br><br>
+        Além disso, a dupla também notou que não houve entrega de mensagens fora de ordem, o que 
+        pode ser explicado pela curta distância e portanto baixa quantidade de hops entre as máquinas.
+      </p>
+      <p>
+        <br>
+        Agora, deixando as similaridades de lado, vamos a discussão dos resultados obtidos nas
+        máquinas do laboratório.
+      </p>
+
+      <h3>4.1 Extração</h3>
+      <p>
+        Tanto cliente quanto servidor apresentam relatórios básicos de execução. Os clientes mostram
+        quantas mensagens enviaram e indicam se tudo ocorreu como esperado, ao passo que o servidor
+        mostra as taxas de perda de pacotes, quantas mensagens foram recebidas por cada cliente e
+        quantas mensagens foram recebidas fora de ordem.        
+      </p>
+
+      <!-- colocar fotos do log aq -->
+
+      <p>
+        <br>
+        Além disso, o servidor também escreve alguns arquivos que são utilizados para geração de 
+        gráficos e análise dos resultados obtidos. Esses arquivos contém informações sobre
+        toda a bateria de testes realizada, permitindo uma análise mais geral dos resultados.
+      </p>
     </div>
   </section>
 </body>

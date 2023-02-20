@@ -80,7 +80,6 @@ void receiveFromClient(Server* server){
       (server->msg)
     )
   );
-
 }
 
 void sendToClient(Server* server){
