@@ -144,7 +144,7 @@ void appendTotalMessagesToLost(Server* server){
 }
 
 void appendGeneralReport(Server* server){
-  ofstream file("general-report.csv", ios::app);
+  ofstream file("general-report.txt", ios::app);
   float totalMessages = (float) server->totalMessagesExpected * server->totalClientsTalking;
   float totalLost = (float) server->totalLostMessages;
   float lossRate = totalLost / totalMessages * 100;

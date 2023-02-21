@@ -141,3 +141,20 @@ section div h4 {
 h5 {
   font-size: 1.1rem;
 }
+
+.report {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0;
+  margin-bottom: 1rem;
+
+  width: 100%;
+}
+
+.report div {
+  padding: 0;
+}
+
+.report h5 {
+  padding: 1rem 0;
+}
