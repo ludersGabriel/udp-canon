@@ -158,3 +158,8 @@ h5 {
 .report h5 {
   padding: 1rem 0;
 }
+
+.fontes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}

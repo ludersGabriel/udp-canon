@@ -26,7 +26,7 @@ def packetsReceived():
 
 def generalReport():
   num = '4'
-  with open('./docs/reports/general-report' + num + '.csv') as csvfile:
+  with open('./docs/reports/teste2/general-report-' + num + '.txt') as csvfile:
     plots = csv.reader(csvfile, delimiter=',')
 
     # skips headers
@@ -41,17 +41,17 @@ def generalReport():
       totalMessagesLost = row[2]
       lossRate = row[3]
 
-      data2.append((str(totalMessages), float(lossRate)))
+      data2.append((str(totalClients), float(lossRate)))
     
     average = sum([y for x, y in data2]) / len([y for x, y in data2])
     print(data2)
     plt.bar([x for x, y in data2], [y for x, y in data2])
     fig = plt.gcf()
     fig.set_size_inches(18, 9)
-    plt.title('Loss Rate vs Total Messages (1 total clients)')
+    plt.title('Loss Rate vs Total Clients (100 messages per client) ' + num)
     plt.axhline(average, color='r', linestyle='--', label='Average Loss Rate')
     plt.ylabel('Loss Rate (%)')
-    plt.xlabel('Total Messages')
+    plt.xlabel('Total Clients')
     plt.legend()
     plt.text(
       0, 
@@ -63,7 +63,7 @@ def generalReport():
       va='bottom'
     )
   
-    plt.savefig('./docs/graphs/loss-rate-vs-total-messages' + num + '.png')
+    plt.savefig('./docs/graphs/loss-rate-vs-total-clients-' + num + '.png')
     plt.show()
           
 def main():

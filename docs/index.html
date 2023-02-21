@@ -13,6 +13,7 @@
     <h1>Relatório Trabalho 1 de Redes II</h1>
     <p>Eduardo Vudala</p>
     <p>Gabriel Lüders</p>
+    <a href="https://github.com/ludersGabriel/udp-canon">repositório</a>
   </header>
   <section>
     <div>
@@ -33,6 +34,10 @@
         O trabalho foi implementado em C++ e consiste em bibliotecas para o cliente, servidor e
         o tipo de mensagem sendo transmitida, além de duas mains, uma para o cliente e outra
         para o servidor, que utilizam a API de sockets do C++ para comunicar datagramas UDP.
+        <br><br>
+        Para compilar o trabalho basta executar "make" no diretório raíz do projeto. Instruções 
+        sobre como rodar cliente e servidor estão descritas abaixo. Vale a pena ressaltar que 
+        o servidor deve ser executado antes do cliente.
       </p>
 
       <h3>2.1. Mensagem</h3>
@@ -71,6 +76,15 @@
       <p>
         Ao passo que o gerenciador é uma main própria responsável por gerar os filhos e 
         imprimir os relatórios após todos os filhos terminarem de rodar.
+        <br><br>
+      </p>
+
+      <h4>2.2.1 Rodando o cliente</h4>
+      <p>
+        <br>
+        Para rodar o cliente, basta executar ./client &lt;server&gt; &lt;porta&gt; 
+        &lt;quantidade de clientes&gt; &lt;quantidade de mensagens por cliente&gt; 
+        [path-to-output]. O parâmetro path-to-output não é obrigatório e tem valor default = stdout.
       </p>
       
       <h3>2.3. Servidor</h3>
@@ -99,6 +113,13 @@
           <img src="images/reportInfo.png" alt="estutura do relatório">
         </div>
       </div>
+
+      <h4>2.3.1 Rodando o servidor</h4>
+      <p>
+        <br>
+        Para rodar o servidor, basta executar ./server &lt;porta&gt; [path-to-output].
+        O parâmetro path-to-output não é obrigatório e tem valor default = stdout.
+      </p>
 
       <h3>2.4. Comunicação</h3>
       <p>
@@ -146,15 +167,14 @@
       </p>
       <p>
         <br>
-        Os testes constituem em uma bateria de comunicações com 
-        diferentes quantidades de clientes e mensagens por clientes, além de uma segunda
-        bateria de testes com um número fixo de clientes = 1 e variação na 
-        quantidade de mensagens. Fizemos dessa maneira com o objetivo de sermos exaustivos
-         e não deixar dúvidas sobre os resultados.
+        Os testes constituem em uma bateria de comunicações com número fixo de clientes = 1
+        e variação na quantidade de mensagens, além de uma segunda bateria de testes com
+        diferentes quantidades de clientes e quantidade de mensagens por cliente fixa = 100. 
+        Fizemos dessa maneira com o objetivo de sermos exaustivos e não deixar dúvidas sobre
+        os resultados.
+
         <br><br>
-        Há um script run.sh que automatiza a execução nas máquinas pessoais e que demonstra
-        o que foi feito nas do laboratório. Logs de execução e os arquivos fonte estão 
-        disponíveis abaixo. 
+        Logs de execução e os arquivos fonte estão disponíveis abaixo. 
       </p>
     </div>
     <div>
@@ -247,20 +267,128 @@
       </div>
 
       <p>
-        Com uma taxa média final de 33.43% de perda de pacotes, o grupo concluiu que a taxa se mantém
+        Com uma taxa média final de 35.40% de perda de pacotes, o grupo concluiu que a taxa se mantém
         num intervalo pouco variável a partir do momento que o número de mensagens é grande o suficiente para
         causar a saturação do buffer UDP e portanto só depende da velocidade com que o servidor consegue
         processar as mensagens com relação a velocidade que o cliente está enviando e não da quantidade de
-        mensagens em si, ao menos quando temos apenas um cliente enviando mensagens.
+        mensagens em si, ao menos quando temos apenas um cliente enviando mensagens. Isso é 
+        ainda mais aparente quando notamos que em determinados momentos a taxa subiu ou desceu abruptamente,
+        o que pode ser explicado pela carga que cada máquina estava suportando no momento, o que por sua vez 
+        pode ter influenciado o tempo de processamento recebido pelos processos, mudando o balanço velocidade
+        de envio / velocidade de recebimento.
+      </p>
+
+      <h3>4.3. Número de clientes variável</h3>
+      <p>
+        A segunda bateria de testes foi feita com um número de clientes variável em cima de um número
+        fixo de mensagens = 100 por cliente. O objetivo era verificar como a taxa de perda seria afetada
+        com a concorrência de mais clientes.
+        <br><br>
+        Rodamos com 100 mensagens por cliente para um intervalo de 10 a 10000 clientes, totalizando um 
+        máximo de 1e+06 mensagens:
+      </p>
+
+      <div class="imgWrapper">
+        <img src="images/totalMessages.png"  alt="input teste 2">
+      </div>
+
+      <p>
+        Aqui vale a pena ressaltar que inicialmente queriamos rodar com até 40000 clientes, mas atingimos
+        o limite de processos simultâneos nas máquinas do dinf e, por isso, diminúimos o intervalo.
+        <br><br>
+        Assim como no teste 1, repetimos o teste 4 vezes e anotamos a média de perda de pacotes de cada 
+        rodada nos gráficos abaixo:
+      </p>
+
+      <div class="graphs">
+        <img src="graphs/loss-rate-vs-total-clients-1.png" alt="gráfico de 1 cliente 1">
+        <img src="graphs/loss-rate-vs-total-clients-2.png" alt="gráfico de 1 cliente 2">
+        <img src="graphs/loss-rate-vs-total-clients-3.png" alt="gráfico de 1 cliente 3">
+        <img src="graphs/loss-rate-vs-total-clients-4.png" alt="gráfico de 1 cliente 4">
+      </div>
+
+      <p>
+        Aqui os resultados foram um pouco mais curiosos. Quando realizamos esse teste nas máquinas pessoais
+        dos integrantes da equipe, obtivemos uma taxa de perda muito superior a taxa encontrada no teste 1, 
+        quando o número de clientes era fixo = 1. Devido a isso, inicialmente acreditamos que algo similar
+        aconteceria nas máquinas do laboratório, porém o contrário aconteceu, a taxa diminui drasticamente!
+        <br><br>
+        Após certa análise, acreditamos que o motivo para essa diferença reside na diferença da potência
+        das CPUS utilizadas, em especial a quantidade de processos concorrentes que cada máquina suporta. 
+        Nas máquinas pessoais, o número de processos concorrentes permitido pela CPU é muito maior que o 
+        permitido pelas máquinas do laboratório, em especial a máquina h29. Além disso, a máquina h29
+        (onde rodamos o cliente) tem caches de CPU menores e frequência de clock também menor que as 
+        máquinas pessoais utilizadas:
+      </p>
+
+      <div class="serverImages">
+        <div class="imgWrapper">
+          <img src="images/arquiteturaH29.png"  alt="arquitetura h29">
+        </div>
+        <div class="imgWrapper">
+          <img src="images/arquiteturaGlastheim.png"  alt="arquitetura pessoal">
+        </div>
+      </div>
+
+      <p>
+        Pelos relatórios de CPU acima, notamos que a máquina Glastheim (pessoal) tem quatro vezes
+        mais CPUs que a máquina h29 (laboratório), o que impacta diretamente na quantidade de processos
+        concorrentes permitidos.
+        <br><br>
+        Voltando aos gráficos, portanto, acreditamos que a diminuição na taxa de perda de pacotes se deve
+        à baixa concorrência suportada pela máquina h29, o que faz com que o escalonador de tarefas e o tempo
+        que cada processo passa dormindo afetem muito mais a taxa real de transmissão de pacotes, o que 
+        dá mais tempo para o servidor processar as mensagens e diminui a taxa de perda.
+        <br><br>
+        No mais, com uma taxa média de perda final de 5.72% de perda de pacotes, chegamos a uma conclusão
+        similar a do teste 1: como uma taxa de perda pouco variável, mais uma vez se torna evidente que
+        a taxa depende mais da velocidade com que o servidor consegue processar as mensagens com relação a
+        velocidade de envio dos clientes do que com a quantidade de mensagens sendo recebidas.
+      </p>
+
+      <h3>4.4. Conclusões</h3>
+      <p>
+        Como a taxa de perda de pacotes aparece e se mantém num intervalo pouco variável 
+        a partir do momento em que a quantidade de mensagens chegando ao servidor é o 
+        suficiente para sobrecarregar o buffer devido a relação velocidade de envio / velocidade de 
+        recebimento (contamos aqui todo o processamento feito em cima das mensagens no servidor), a equipe 
+        acredita que a taxa de perda está diretamente relacionada com a saturação do buffer UDP do servidor.
+        <br><br>
+        Além disso, devido ao baixo potencial de concorrência da máquina h29, a equipe decidiu que os 
+        resultados do teste 1 são mais confiáveis para determinar a taxa média de perda de pacotes
+        da rede, o que então nos deixa com uma <b>taxa média aproximada de 35.40%</b> de perda de pacotes.
+        <br><br>
+        No mais, vale a pena lembrar que não tivemos pacotes fora de ordem em nenhum dos testes, tanto locais
+        quanto no laboratório, fato que o grupo atribui ao pequeno número de hops entre as máquinas utilizadas.
+        <br><br>
+        Por fim, a equipe acredita ter cumprido com os requisitos do trabalho, tendo realizado testes
+        exaustivos e com resultados consistentes para atingir os resultados desejados.
       </p>
     </div>
+    
     <div>
-      <h2>?. Arquivos</h2>
+      <h2>5. Arquivos</h2>  
       
-      <h3>?.1. Fonte</h3>
-      <!-- font here -->
+      <h3>5.1. Fonte</h3>
+      <div class="fontes">
+        <a href="./fontes/Makefile.txt">Makefile</a>
+        <a href="./fontes/client.cpp.txt">client.cpp</a>
+        <a href="./fontes/client.h.txt">client.h</a>
+        <a href="./fontes/main-client.cpp.txt">main-client.cpp</a>
+        <a href="./fontes/server.cpp.txt">server.cpp</a>
+        <a href="./fontes/server.h.txt">server.h</a>
+        <a href="./fontes/server-main.cpp.txt">server-main.cpp</a>
+        <a href="./fontes/message.cpp.txt">message.cpp</a>
+        <a href="./fontes/message.h.txt">message.h</a>
+      </div>
 
-      <h3>?.2. Relatórios gerais</h3>
+      <h3>5.2. Relatórios gerais</h3>
+      <p>
+        Os relatórios gerais foram utilizados para gerar os gráficos acima. O servidor é responsável
+        por montar esses arquivos a partir dos logs extraídos da comunicação cliente/servidor. A nomenclatura
+        aqui segue o padrão general-report-[num rodada].txt e que os relatórios são arquivos csv com o seguinte
+        header: "totalClients, totalMessages, totalMessagesLost, lossRate"
+      </p>
       <div id="report" class="report">
         <div>
           <h5>Teste 1</h5>
@@ -274,9 +402,24 @@
         </div>
       </div>
 
-      <h3>?.3. Logs</h3>
-
-      <h4>?.3.1 Teste 1</h4>
+      <h3>5.3. Logs</h3> 
+      <p>
+        Aqui temos os logs de cada comunicação realizada nos testes. Como demonstrado nos exemplos acima, o 
+        relatório de perda é impresso no fim do log do servidor. Ali, pode-se encontrar claramente
+        perda de pacotes entre a comunicação, como por exemplo no fim do log server-1-1000-1.txt:
+      </p>
+      <div class="imgWrapper">
+        <img src="images/perdaPacotes.png" alt="log">
+      </div>
+      <p>
+        Além disso, aqui vale destacar que a nomenclatura dos arquivos segue o padrão 
+        [cliente/servidor]-[qtd clientes]-[qtd mensagens por cliente]-[num da rodada].txt
+        <br><br>
+        No mais, não colocamos os logs para o teste 1 para 4000000 de mensagens visto que, mesmo compactados,
+        eram muito grande e o github não aceitava o upload.
+        <br><br>
+      </p>
+      <h4>5.3.1. Teste 1</h4>
       <div id="teste1" class="teste1">
         <div>
           <h5>Logs do cliente</h5>
@@ -290,7 +433,7 @@
         </div>
       </div>
 
-      <h4>?.3.2 Teste 2</h4>
+      <h4>5.3.2. Teste 2</h4>
       <div id="teste1" class="teste1">
         <div>
           <h5>Logs do cliente</h5>
