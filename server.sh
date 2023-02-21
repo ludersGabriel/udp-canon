@@ -1,5 +1,5 @@
-totalClients=(10 100 500 1000 2500 5000 7500 10000)
-totalMessages=(100)
+totalClients=(1)
+totalMessages=(1000 10000 50000 100000 250000 500000 750000 1000000 2000000 4000000)
 
 num=1
 
@@ -10,9 +10,9 @@ do
   for j in "${totalMessages[@]}"
   do
     echo "Running test with $i clients and $j messages"
-    ./server 8080 ./docs/logs/server/teste2/server-$i-$j-$num.txt
+    ./server 8080 ./docs/logs/server/teste1/server-$i-$j-$num.txt
   done
 done
 
-cp ./general-report.txt ./docs/reports/teste2/general-report-$num.txt
+cp ./general-report.txt ./docs/reports/teste1/general-report-$num.txt
 rm general-report.txt
