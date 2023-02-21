@@ -1,7 +1,18 @@
-i=$1 
-j=$2 
-num=$3
+totalClients=(10 100 500 1000 2500 5000 7500 10000)
+totalMessages=(100)
 
-serverCommand="./server 8080 ./docs/logs/server/teste1/server-$i-$j-$num.txt"
+num=1
 
-ssh -tt gl19@h30 -J gl19@ssh.c3sl.ufpr.br -C "cd ./udp-canon; $serverCommand"
+echo "totalClients, totalMessages, totalMessagesLost, lossRate" > general-report.txt
+
+for i in "${totalClients[@]}"
+do
+  for j in "${totalMessages[@]}"
+  do
+    echo "Running test with $i clients and $j messages"
+    ./server 8080 ./docs/logs/server/teste2/server-$i-$j-$num.txt
+  done
+done
+
+cp ./general-report.txt ./docs/reports/teste2/general-report-$num.txt
+rm general-report.txt
