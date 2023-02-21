@@ -9,7 +9,7 @@
 
 int main(int argc, char** argv) {
   if(argc < 5 || argc > 6) {
-    printf("Usage: client <server> <port> <clients> <cannonballs> [silent]\n");
+    fprintf(stdout, "Usage: client <server> <port> <clients> <cannonballs> [file]\n");
     exit(1);
   }
 
@@ -17,9 +17,18 @@ int main(int argc, char** argv) {
   char* port = argv[2];
   char* clients = argv[3];
   char* cannonballs = argv[4];
-  bool silent = argc == 6 ? true : false;
 
-  handshake(server, port, clients, cannonballs, silent);
+  FILE* output = stdout;
+  if(argc == 6) {
+    output = fopen(argv[5], "w");
+    if(!output){
+      fprintf(stdout, "Error opening file %s\n", argv[5]);
+      exit(1);
+    }
+  }
+
+  handshake(server, port, clients, cannonballs, output);
+  fflush(output);
 
   int pid = 0;
   int clientsAmount = atoi(clients);
@@ -30,11 +39,11 @@ int main(int argc, char** argv) {
   }while(pid && --clientsAmount);
 
   if(pid) {
-    parentMain(pids, silent);
+    parentMain(pids, output);
     return 0;
   }
 
-  childMain(atoi(cannonballs), server, port, silent);
+  childMain(atoi(cannonballs), server, port);
 
   return 0;
 }

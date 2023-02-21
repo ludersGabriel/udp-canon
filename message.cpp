@@ -5,7 +5,7 @@
 
 Message* messageConstructor(char* msg, int id, int pid) {
   if(strlen(msg) > 100) {
-    printf("message: message too long\n");
+    fprintf(stdout, "message: message too long\n");
     return NULL;
   }
 
@@ -22,7 +22,7 @@ void messageDestructor(Message* message) {
 }
 
 void printMessage(Message* message) {
-  printf("message: %s\n", message->message);
-  printf("messageId: %d\n", message->messageId);
-  printf("clientPid: %d\n", message->clientPid);
+  fprintf(stdout, "message: %s\n", message->message);
+  fprintf(stdout, "messageId: %d\n", message->messageId);
+  fprintf(stdout, "clientPid: %d\n", message->clientPid);
 }

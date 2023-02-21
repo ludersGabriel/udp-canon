@@ -14,7 +14,7 @@ Client* clientConstructor(char* svName, char* port) {
   client->host = svName;
   client->hp = gethostbyname(client->host);
   if(!client->hp){
-    printf( "client: host %s not found\n", client->host);
+    fprintf(stdout,  "client: host %s not found\n", client->host);
     exit(1);
   }
 
@@ -30,7 +30,7 @@ Client* clientConstructor(char* svName, char* port) {
   int type = SOCK_DGRAM;
   client->socketDescriptor = socket(client->hp->h_addrtype, type, 0);
   if(client->socketDescriptor < 0){
-    printf( "client: not able to open socket");
+    fprintf(stdout,  "client: not able to open socket");
     exit(1);
   }
 
@@ -54,39 +54,35 @@ void sendToServer(Client* client, Message* msg) {
   );
 
   if(ret != sizeof(Message)){
-    printf("client: couldn't send whole message\n");
+    fprintf(stdout, "client: couldn't send whole message\n");
     exit(1);
   }
 }
 
-void parentMain(vector<int> pids, bool silent) {
-  if(!silent)
-    printf("client: forked all clients\n");
+void parentMain(vector<int> pids, FILE* output) {
+  fprintf(output, "client: forked all clients\n");
 
   int status = 0;
   int wpid;
   while ((wpid = wait(&status)) > 0);
 
-  if(!silent)
-    printf("\nclient: printing reports for each fork\n");
+  fprintf(output, "\nclient: printing reports for each fork\n");
 
   // print reports here
   for(long unsigned int i = 0; i < pids.size(); i++){
-    if(!silent)
-      cout << endl;
+    fprintf(output, "\n");
     string fileName = "client" + to_string(pids[i]) + ".txt";
     ifstream file(fileName);
     string line;
-    while(!silent && getline(file, line)){
-      cout << line << endl;
+    while(getline(file, line)){
+      fprintf(output, "%s\n", line.c_str());
     }
     file.close();
     remove(fileName.c_str());
   }
 
   int totalMessages = 0;
-  if(!silent)
-    printf("\nclient: printing sent report\n\n");
+  fprintf(output, "\nclient: printing sent report\n\n");
   for(auto i : pids){
     string sentReportName = "client" + to_string(i) + "SentReport.txt";
     ifstream sentReport(sentReportName);
@@ -94,8 +90,7 @@ void parentMain(vector<int> pids, bool silent) {
     string line;
     int count = 1;
     while(getline(sentReport, line)){
-      if(!silent)
-        cout << line << endl;
+      fprintf(output, "%s\n", line.c_str());
 
       if(count == 3){
         int num = atoi(line.substr(line.find(':') + 2, line.length() - line.find(':')).c_str());
@@ -105,18 +100,16 @@ void parentMain(vector<int> pids, bool silent) {
 
       count++;
     }
-    if(!silent)
-      cout << endl;
+    fprintf(output, "\n");
     
     sentReport.close();
     remove(sentReportName.c_str());
   }
 
-  if(!silent)
-    printf("client: sent %d messages\n\n", totalMessages);
+  fprintf(output, "client: sent %d messages\n\n", totalMessages);
 }
 
-void childMain(int balls, char* server, char* port, bool silent){
+void childMain(int balls, char* server, char* port){
   int cannonballs = balls;
   int myPid = getpid();
 
@@ -154,7 +147,7 @@ void childMain(int balls, char* server, char* port, bool silent){
   sentReport.close();
 }
 
-void handshake(char* server, char* port, char* clients, char* cannonbals, bool silent) {
+void handshake(char* server, char* port, char* clients, char* cannonbals, FILE* output) {
   Client* client = clientConstructor(server, port);
 
   char text[80];
@@ -164,8 +157,8 @@ void handshake(char* server, char* port, char* clients, char* cannonbals, bool s
     atoi(cannonbals), 
     atoi(clients)
   );
-  if(!silent)
-    printf("client: %s\n", text);
+  fprintf(output, "client: %s\n", text);
+  fflush(output);
   Message* msg = messageConstructor(text, atoi(cannonbals), atoi(clients));
   sendToServer(client, msg);
 

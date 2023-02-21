@@ -1,15 +1,16 @@
 #include "server.h"
 #include "message.h"
 
-Server* serverConstructor(char* port, bool& isDone, bool silent){
+Server* serverConstructor(char* port, bool& isDone, FILE* output){
   Server* server = (Server*) malloc(sizeof(Server));
 
-  server->silent = silent;
+  server->output = output;
+
   gethostname(server->hostname, MAXHOSTNAME);
 
   server->hostInfo = gethostbyname(server->hostname);
   if(!server->hostInfo){
-    printf( "Server: couldn't get my IP\n");
+    fprintf(stdout,  "Server: couldn't get my IP\n");
     exit(1);
   }
 
@@ -24,7 +25,7 @@ Server* serverConstructor(char* port, bool& isDone, bool silent){
   int type = SOCK_DGRAM;
   server->sockDescr = socket(server->hostInfo->h_addrtype, type, 0);
   if(server->sockDescr < 0){
-    printf( "Server: couldn't open listen socket\n");
+    fprintf(stdout,  "Server: couldn't open listen socket\n");
     exit(1);
   }
 
@@ -34,7 +35,7 @@ Server* serverConstructor(char* port, bool& isDone, bool silent){
     sizeof(server->serverAddress)
   );
   if(ret < 0){
-    printf( "Server: couldn't bind to socket\n");
+    fprintf(stdout,  "Server: couldn't bind to socket\n");
     exit(1);
   }
 
@@ -63,8 +64,7 @@ void receiveFromClient(Server* server){
   if(server->totalMessagesExpected == 0){
     server->totalMessagesExpected = (server->msg).messageId;
     server->totalClientsTalking = (server->msg).clientPid;
-    if(!server->silent)
-      printf( "server: %s\n", (server->msg).message);
+    fprintf(server->output,  "server: %s\n", (server->msg).message);
     return;
   }
 
@@ -94,15 +94,13 @@ void sendToClient(Server* server){
 }
 
 void printReport(Server* server){
-  if(server->silent) return;
-
-  printf("\nserver: printing report\n\n");
+  fprintf(server->output, "\nserver: printing report\n\n");
   for(auto it : server->reportInfo->infos){
-    printf( "\tClient %d\n", it.first);
+    fprintf(server->output,  "\tClient %d\n", it.first);
     for(auto it2 : it.second){
-      printf( "\t\treceivedId %d: received %s\n", it2.first, it2.second.message);
+      fprintf(server->output,  "\t\treceivedId %d: received %s\n", it2.first, it2.second.message);
     }
-    printf("\n");
+    fprintf(server->output, "\n");
   }
 }
 
@@ -116,23 +114,21 @@ void writeReceivedFile(Server* server){
 }
 
 void printLossReport(Server* server){
-  if(!server->silent)
-    printf( "server: printing loss report\n\n");
+  fprintf(server->output,  "server: printing loss report\n\n");
   for(auto it : server->reportInfo->infos){
     int lost = server->totalMessagesExpected - it.second.size();
+    server->totalLostMessages += lost;
 
-    if(server->silent) continue;
-
-    printf( "\tClient %d\n", it.first);
-    printf(
+    fprintf(server->output,  "\tClient %d\n", it.first);
+    fprintf(server->output, 
       "\t\tHow many packets received: %ld\n",
       it.second.size()
     );
-    printf(
+    fprintf(server->output, 
       "\t\tHow many packets expected: %d\n",
       server->totalMessagesExpected
     );
-    printf(
+    fprintf(server->output, 
       "\t\tHow many packets lost: %d\n\n", 
       lost
     );
@@ -161,8 +157,7 @@ void appendGeneralReport(Server* server){
 }
 
 void verifyOrder(Server* server){
-  if(!server->silent)
-    printf("server: out of order report\n\n");
+  fprintf(server->output, "server: out of order report\n\n");
   for(auto it : server->reportInfo->infos){
     int max = 0;
     vector<int> received;
@@ -175,16 +170,15 @@ void verifyOrder(Server* server){
       int id = it2.second.messageId;
       if(id > max) max = id;
       else if(id < max){
-        if(printHeader && !server->silent){
-          printf("\tClient %d\n", clientId);
+        if(printHeader){
+          fprintf(server->output, "\tClient %d\n", clientId);
           printHeader = false;
         }
         server->totalOutOfOrderMessages += 1;
 
-        if(server->silent) continue;
         for(unsigned long int j = i - 2; j < i + 2; j++){
           if(j < 0 || j >= it.second.size()) continue;
-          printf(
+          fprintf(server->output, 
             "\t\treceivedId = %d, cannonballId = %d\n", 
             it.second[j].first, 
             it.second[j].second.messageId
@@ -196,25 +190,23 @@ void verifyOrder(Server* server){
 }
 
 void printFooter(Server* server){
-  if(server->silent) return;
-
   float totalMessages = (float) server->totalMessagesExpected * server->totalClientsTalking;
-  printf(
+  fprintf(server->output, 
     "server: total of %0.2f messages expected\n",
     totalMessages
   );
 
-  printf(
+  fprintf(server->output, 
     "server: lost %d messages\n", 
     server->totalLostMessages
   );
 
-  printf(
+  fprintf(server->output, 
     "server: packet loss rate of %0.2f%%\n",
     (float) server->totalLostMessages / totalMessages * 100
   );
 
-  printf(
+  fprintf(server->output, 
     "server: received %d messages out of order\n\n", 
     server->totalOutOfOrderMessages
   );

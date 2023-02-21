@@ -1,0 +1,1982 @@
+server: now waiting messages...
+server: expected 100 cannonballs from 100 clients each
+
+server: printing report
+
+	Client 503586
+		receivedId 1: received cannonball 1
+		receivedId 2: received cannonball 2
+		receivedId 3: received cannonball 3
+		receivedId 4: received cannonball 4
+		receivedId 5: received cannonball 5
+		receivedId 6: received cannonball 6
+		receivedId 7: received cannonball 7
+		receivedId 8: received cannonball 8
+		receivedId 9: received cannonball 9
+		receivedId 10: received cannonball 10
+		receivedId 11: received cannonball 11
+		receivedId 12: received cannonball 12
+		receivedId 13: received cannonball 13
+		receivedId 14: received cannonball 14
+		receivedId 15: received cannonball 15
+		receivedId 16: received cannonball 16
+		receivedId 17: received cannonball 17
+		receivedId 18: received cannonball 18
+		receivedId 19: received cannonball 19
+		receivedId 20: received cannonball 20
+		receivedId 21: received cannonball 21
+		receivedId 22: received cannonball 22
+		receivedId 23: received cannonball 23
+		receivedId 24: received cannonball 24
+		receivedId 25: received cannonball 25
+		receivedId 26: received cannonball 26
+		receivedId 27: received cannonball 27
+		receivedId 28: received cannonball 28
+		receivedId 29: received cannonball 29
+		receivedId 30: received cannonball 30
+		receivedId 31: received cannonball 31
+		receivedId 32: received cannonball 32
+		receivedId 33: received cannonball 33
+		receivedId 34: received cannonball 34
+		receivedId 35: received cannonball 35
+		receivedId 36: received cannonball 36
+		receivedId 37: received cannonball 37
+		receivedId 38: received cannonball 38
+		receivedId 39: received cannonball 39
+		receivedId 40: received cannonball 40
+		receivedId 41: received cannonball 41
+		receivedId 42: received cannonball 42
+		receivedId 43: received cannonball 43
+		receivedId 44: received cannonball 44
+		receivedId 45: received cannonball 45
+		receivedId 46: received cannonball 46
+		receivedId 47: received cannonball 47
+		receivedId 48: received cannonball 48
+		receivedId 49: received cannonball 49
+		receivedId 50: received cannonball 50
+		receivedId 51: received cannonball 51
+		receivedId 52: received cannonball 52
+		receivedId 53: received cannonball 53
+		receivedId 54: received cannonball 54
+		receivedId 55: received cannonball 55
+		receivedId 56: received cannonball 56
+		receivedId 57: received cannonball 57
+		receivedId 58: received cannonball 58
+		receivedId 59: received cannonball 59
+		receivedId 60: received cannonball 60
+		receivedId 61: received cannonball 61
+		receivedId 62: received cannonball 62
+		receivedId 63: received cannonball 63
+		receivedId 64: received cannonball 64
+		receivedId 65: received cannonball 65
+		receivedId 66: received cannonball 66
+		receivedId 67: received cannonball 67
+		receivedId 68: received cannonball 68
+		receivedId 69: received cannonball 69
+		receivedId 70: received cannonball 70
+		receivedId 71: received cannonball 71
+		receivedId 72: received cannonball 72
+		receivedId 73: received cannonball 79
+		receivedId 74: received cannonball 80
+		receivedId 75: received cannonball 81
+		receivedId 76: received cannonball 82
+		receivedId 77: received cannonball 83
+		receivedId 78: received cannonball 84
+
+	Client 503587
+		receivedId 1: received cannonball 1
+		receivedId 2: received cannonball 2
+		receivedId 3: received cannonball 3
+		receivedId 4: received cannonball 4
+		receivedId 5: received cannonball 5
+		receivedId 6: received cannonball 6
+		receivedId 7: received cannonball 7
+		receivedId 8: received cannonball 8
+		receivedId 9: received cannonball 9
+		receivedId 10: received cannonball 10
+		receivedId 11: received cannonball 11
+		receivedId 12: received cannonball 12
+		receivedId 13: received cannonball 13
+		receivedId 14: received cannonball 14
+		receivedId 15: received cannonball 15
+		receivedId 16: received cannonball 16
+		receivedId 17: received cannonball 17
+		receivedId 18: received cannonball 18
+		receivedId 19: received cannonball 19
+		receivedId 20: received cannonball 20
+		receivedId 21: received cannonball 21
+		receivedId 22: received cannonball 22
+		receivedId 23: received cannonball 23
+		receivedId 24: received cannonball 24
+		receivedId 25: received cannonball 25
+		receivedId 26: received cannonball 26
+		receivedId 27: received cannonball 27
+		receivedId 28: received cannonball 28
+		receivedId 29: received cannonball 29
+		receivedId 30: received cannonball 30
+		receivedId 31: received cannonball 31
+		receivedId 32: received cannonball 32
+		receivedId 33: received cannonball 33
+		receivedId 34: received cannonball 34
+		receivedId 35: received cannonball 35
+		receivedId 36: received cannonball 36
+		receivedId 37: received cannonball 37
+		receivedId 38: received cannonball 38
+		receivedId 39: received cannonball 39
+		receivedId 40: received cannonball 40
+		receivedId 41: received cannonball 41
+		receivedId 42: received cannonball 42
+		receivedId 43: received cannonball 43
+		receivedId 44: received cannonball 44
+		receivedId 45: received cannonball 45
+		receivedId 46: received cannonball 46
+		receivedId 47: received cannonball 47
+		receivedId 48: received cannonball 55
+		receivedId 49: received cannonball 56
+		receivedId 50: received cannonball 57
+		receivedId 51: received cannonball 58
+		receivedId 52: received cannonball 59
+		receivedId 53: received cannonball 60
+
+	Client 503588
+		receivedId 1: received cannonball 1
+		receivedId 2: received cannonball 2
+		receivedId 3: received cannonball 3
+		receivedId 4: received cannonball 4
+		receivedId 5: received cannonball 5
+		receivedId 6: received cannonball 6
+		receivedId 7: received cannonball 7
+		receivedId 8: received cannonball 8
+		receivedId 9: received cannonball 9
+		receivedId 10: received cannonball 10
+		receivedId 11: received cannonball 11
+		receivedId 12: received cannonball 12
+		receivedId 13: received cannonball 13
+		receivedId 14: received cannonball 14
+		receivedId 15: received cannonball 15
+		receivedId 16: received cannonball 16
+		receivedId 17: received cannonball 17
+		receivedId 18: received cannonball 18
+		receivedId 19: received cannonball 19
+		receivedId 20: received cannonball 20
+		receivedId 21: received cannonball 21
+		receivedId 22: received cannonball 22
+		receivedId 23: received cannonball 23
+		receivedId 24: received cannonball 24
+		receivedId 25: received cannonball 25
+		receivedId 26: received cannonball 26
+		receivedId 27: received cannonball 27
+		receivedId 28: received cannonball 28
+		receivedId 29: received cannonball 29
+		receivedId 30: received cannonball 30
+		receivedId 31: received cannonball 31
+		receivedId 32: received cannonball 32
+		receivedId 33: received cannonball 33
+		receivedId 34: received cannonball 34
+		receivedId 35: received cannonball 35
+		receivedId 36: received cannonball 36
+		receivedId 37: received cannonball 37
+		receivedId 38: received cannonball 38
+		receivedId 39: received cannonball 39
+		receivedId 40: received cannonball 40
+		receivedId 41: received cannonball 41
+		receivedId 42: received cannonball 42
+		receivedId 43: received cannonball 43
+		receivedId 44: received cannonball 44
+		receivedId 45: received cannonball 45
+		receivedId 46: received cannonball 46
+		receivedId 47: received cannonball 47
+		receivedId 48: received cannonball 48
+		receivedId 49: received cannonball 49
+		receivedId 50: received cannonball 50
+		receivedId 51: received cannonball 51
+		receivedId 52: received cannonball 52
+		receivedId 53: received cannonball 53
+		receivedId 54: received cannonball 54
+		receivedId 55: received cannonball 55
+		receivedId 56: received cannonball 56
+		receivedId 57: received cannonball 57
+		receivedId 58: received cannonball 58
+		receivedId 59: received cannonball 59
+		receivedId 60: received cannonball 60
+		receivedId 61: received cannonball 61
+		receivedId 62: received cannonball 62
+		receivedId 63: received cannonball 75
+		receivedId 64: received cannonball 76
+		receivedId 65: received cannonball 77
+		receivedId 66: received cannonball 78
+		receivedId 67: received cannonball 79
+		receivedId 68: received cannonball 80
+		receivedId 69: received cannonball 81
+		receivedId 70: received cannonball 82
+		receivedId 71: received cannonball 83
+		receivedId 72: received cannonball 84
+		receivedId 73: received cannonball 85
+		receivedId 74: received cannonball 86
+		receivedId 75: received cannonball 87
+
+	Client 503589
+		receivedId 1: received cannonball 1
+		receivedId 2: received cannonball 2
+		receivedId 3: received cannonball 3
+		receivedId 4: received cannonball 4
+		receivedId 5: received cannonball 5
+		receivedId 6: received cannonball 6
+		receivedId 7: received cannonball 7
+		receivedId 8: received cannonball 8
+		receivedId 9: received cannonball 9
+		receivedId 10: received cannonball 10
+		receivedId 11: received cannonball 11
+		receivedId 12: received cannonball 12
+		receivedId 13: received cannonball 13
+		receivedId 14: received cannonball 14
+		receivedId 15: received cannonball 15
+		receivedId 16: received cannonball 16
+		receivedId 17: received cannonball 17
+		receivedId 18: received cannonball 18
+		receivedId 19: received cannonball 19
+		receivedId 20: received cannonball 20
+		receivedId 21: received cannonball 21
+		receivedId 22: received cannonball 22
+		receivedId 23: received cannonball 23
+		receivedId 24: received cannonball 24
+		receivedId 25: received cannonball 25
+		receivedId 26: received cannonball 26
+		receivedId 27: received cannonball 27
+		receivedId 28: received cannonball 28
+		receivedId 29: received cannonball 29
+		receivedId 30: received cannonball 30
+		receivedId 31: received cannonball 31
+		receivedId 32: received cannonball 32
+		receivedId 33: received cannonball 33
+		receivedId 34: received cannonball 34
+		receivedId 35: received cannonball 35
+		receivedId 36: received cannonball 36
+		receivedId 37: received cannonball 37
+		receivedId 38: received cannonball 38
+		receivedId 39: received cannonball 39
+		receivedId 40: received cannonball 40
+		receivedId 41: received cannonball 41
+		receivedId 42: received cannonball 42
+		receivedId 43: received cannonball 43
+		receivedId 44: received cannonball 44
+		receivedId 45: received cannonball 45
+		receivedId 46: received cannonball 46
+		receivedId 47: received cannonball 47
+		receivedId 48: received cannonball 48
+		receivedId 49: received cannonball 49
+		receivedId 50: received cannonball 50
+		receivedId 51: received cannonball 51
+		receivedId 52: received cannonball 52
+		receivedId 53: received cannonball 53
+		receivedId 54: received cannonball 54
+		receivedId 55: received cannonball 55
+		receivedId 56: received cannonball 64
+		receivedId 57: received cannonball 65
+		receivedId 58: received cannonball 66
+		receivedId 59: received cannonball 67
+		receivedId 60: received cannonball 68
+		receivedId 61: received cannonball 69
+
+	Client 503590
+		receivedId 1: received cannonball 1
+		receivedId 2: received cannonball 2
+		receivedId 3: received cannonball 3
+		receivedId 4: received cannonball 4
+		receivedId 5: received cannonball 5
+		receivedId 6: received cannonball 6
+		receivedId 7: received cannonball 7
+		receivedId 8: received cannonball 8
+		receivedId 9: received cannonball 9
+		receivedId 10: received cannonball 10
+		receivedId 11: received cannonball 11
+		receivedId 12: received cannonball 12
+		receivedId 13: received cannonball 13
+		receivedId 14: received cannonball 14
+		receivedId 15: received cannonball 15
+		receivedId 16: received cannonball 16
+		receivedId 17: received cannonball 17
+		receivedId 18: received cannonball 18
+		receivedId 19: received cannonball 19
+		receivedId 20: received cannonball 20
+		receivedId 21: received cannonball 21
+		receivedId 22: received cannonball 22
+		receivedId 23: received cannonball 23
+		receivedId 24: received cannonball 24
+		receivedId 25: received cannonball 25
+		receivedId 26: received cannonball 26
+		receivedId 27: received cannonball 27
+		receivedId 28: received cannonball 28
+		receivedId 29: received cannonball 29
+		receivedId 30: received cannonball 30
+		receivedId 31: received cannonball 31
+		receivedId 32: received cannonball 32
+		receivedId 33: received cannonball 33
+		receivedId 34: received cannonball 34
+		receivedId 35: received cannonball 35
+		receivedId 36: received cannonball 36
+		receivedId 37: received cannonball 37
+		receivedId 38: received cannonball 38
+		receivedId 39: received cannonball 39
+		receivedId 40: received cannonball 40
+		receivedId 41: received cannonball 41
+		receivedId 42: received cannonball 42
+		receivedId 43: received cannonball 43
+		receivedId 44: received cannonball 44
+		receivedId 45: received cannonball 45
+		receivedId 46: received cannonball 46
+		receivedId 47: received cannonball 64
+		receivedId 48: received cannonball 65
+		receivedId 49: received cannonball 66
+		receivedId 50: received cannonball 67
+		receivedId 51: received cannonball 68
+		receivedId 52: received cannonball 69
+		receivedId 53: received cannonball 70
+		receivedId 54: received cannonball 71
+		receivedId 55: received cannonball 72
+
+	Client 503591
+		receivedId 1: received cannonball 1
+		receivedId 2: received cannonball 2
+		receivedId 3: received cannonball 3
+		receivedId 4: received cannonball 4
+		receivedId 5: received cannonball 5
+		receivedId 6: received cannonball 6
+		receivedId 7: received cannonball 7
+		receivedId 8: received cannonball 8
+		receivedId 9: received cannonball 9
+		receivedId 10: received cannonball 10
+		receivedId 11: received cannonball 11
+		receivedId 12: received cannonball 12
+		receivedId 13: received cannonball 13
+		receivedId 14: received cannonball 14
+		receivedId 15: received cannonball 15
+		receivedId 16: received cannonball 16
+		receivedId 17: received cannonball 32
+		receivedId 18: received cannonball 33
+		receivedId 19: received cannonball 34
+		receivedId 20: received cannonball 35
+		receivedId 21: received cannonball 36
+		receivedId 22: received cannonball 37
+		receivedId 23: received cannonball 38
+		receivedId 24: received cannonball 39
+		receivedId 25: received cannonball 40
+		receivedId 26: received cannonball 41
+
+	Client 503592
+		receivedId 1: received cannonball 1
+		receivedId 2: received cannonball 2
+		receivedId 3: received cannonball 3
+		receivedId 4: received cannonball 47
+		receivedId 5: received cannonball 48
+		receivedId 6: received cannonball 49
+		receivedId 7: received cannonball 50
+		receivedId 8: received cannonball 51
+		receivedId 9: received cannonball 52
+		receivedId 10: received cannonball 53
+		receivedId 11: received cannonball 54
+		receivedId 12: received cannonball 55
+		receivedId 13: received cannonball 56
+		receivedId 14: received cannonball 57
+		receivedId 15: received cannonball 58
+
+	Client 503593
+		receivedId 1: received cannonball 44
+		receivedId 2: received cannonball 45
+		receivedId 3: received cannonball 46
+		receivedId 4: received cannonball 47
+		receivedId 5: received cannonball 48
+		receivedId 6: received cannonball 49
+		receivedId 7: received cannonball 50
+		receivedId 8: received cannonball 51
+		receivedId 9: received cannonball 52
+		receivedId 10: received cannonball 53
+		receivedId 11: received cannonball 54
+		receivedId 12: received cannonball 55
+		receivedId 13: received cannonball 56
+		receivedId 14: received cannonball 57
+		receivedId 15: received cannonball 58
+		receivedId 16: received cannonball 59
+
+	Client 503595
+		receivedId 1: received cannonball 24
+		receivedId 2: received cannonball 25
+		receivedId 3: received cannonball 26
+		receivedId 4: received cannonball 27
+		receivedId 5: received cannonball 28
+		receivedId 6: received cannonball 29
+		receivedId 7: received cannonball 30
+		receivedId 8: received cannonball 31
+		receivedId 9: received cannonball 32
+		receivedId 10: received cannonball 33
+		receivedId 11: received cannonball 34
+		receivedId 12: received cannonball 35
+		receivedId 13: received cannonball 36
+		receivedId 14: received cannonball 37
+		receivedId 15: received cannonball 38
+		receivedId 16: received cannonball 39
+		receivedId 17: received cannonball 40
+		receivedId 18: received cannonball 41
+
+	Client 503596
+		receivedId 1: received cannonball 5
+		receivedId 2: received cannonball 6
+		receivedId 3: received cannonball 7
+		receivedId 4: received cannonball 8
+		receivedId 5: received cannonball 9
+		receivedId 6: received cannonball 10
+		receivedId 7: received cannonball 11
+		receivedId 8: received cannonball 12
+		receivedId 9: received cannonball 13
+		receivedId 10: received cannonball 14
+		receivedId 11: received cannonball 15
+		receivedId 12: received cannonball 16
+		receivedId 13: received cannonball 17
+		receivedId 14: received cannonball 18
+		receivedId 15: received cannonball 19
+		receivedId 16: received cannonball 20
+		receivedId 17: received cannonball 21
+		receivedId 18: received cannonball 22
+		receivedId 19: received cannonball 23
+		receivedId 20: received cannonball 24
+		receivedId 21: received cannonball 25
+		receivedId 22: received cannonball 26
+		receivedId 23: received cannonball 27
+		receivedId 24: received cannonball 28
+
+	Client 503599
+		receivedId 1: received cannonball 97
+		receivedId 2: received cannonball 98
+		receivedId 3: received cannonball 99
+		receivedId 4: received cannonball 100
+
+	Client 503600
+		receivedId 1: received cannonball 70
+		receivedId 2: received cannonball 71
+		receivedId 3: received cannonball 72
+		receivedId 4: received cannonball 73
+		receivedId 5: received cannonball 74
+		receivedId 6: received cannonball 75
+		receivedId 7: received cannonball 76
+		receivedId 8: received cannonball 77
+		receivedId 9: received cannonball 78
+
+	Client 503601
+		receivedId 1: received cannonball 49
+		receivedId 2: received cannonball 50
+		receivedId 3: received cannonball 51
+		receivedId 4: received cannonball 52
+		receivedId 5: received cannonball 53
+		receivedId 6: received cannonball 54
+		receivedId 7: received cannonball 55
+		receivedId 8: received cannonball 56
+		receivedId 9: received cannonball 57
+		receivedId 10: received cannonball 58
+
+	Client 503602
+		receivedId 1: received cannonball 76
+		receivedId 2: received cannonball 77
+		receivedId 3: received cannonball 78
+		receivedId 4: received cannonball 79
+		receivedId 5: received cannonball 80
+		receivedId 6: received cannonball 81
+		receivedId 7: received cannonball 82
+		receivedId 8: received cannonball 83
+		receivedId 9: received cannonball 84
+		receivedId 10: received cannonball 85
+		receivedId 11: received cannonball 86
+		receivedId 12: received cannonball 87
+		receivedId 13: received cannonball 88
+		receivedId 14: received cannonball 89
+		receivedId 15: received cannonball 90
+
+	Client 503603
+		receivedId 1: received cannonball 68
+		receivedId 2: received cannonball 69
+		receivedId 3: received cannonball 70
+		receivedId 4: received cannonball 71
+		receivedId 5: received cannonball 72
+		receivedId 6: received cannonball 73
+		receivedId 7: received cannonball 74
+		receivedId 8: received cannonball 75
+		receivedId 9: received cannonball 76
+		receivedId 10: received cannonball 77
+		receivedId 11: received cannonball 78
+		receivedId 12: received cannonball 79
+		receivedId 13: received cannonball 80
+		receivedId 14: received cannonball 81
+		receivedId 15: received cannonball 82
+		receivedId 16: received cannonball 83
+		receivedId 17: received cannonball 84
+		receivedId 18: received cannonball 85
+		receivedId 19: received cannonball 86
+		receivedId 20: received cannonball 87
+		receivedId 21: received cannonball 88
+		receivedId 22: received cannonball 89
+		receivedId 23: received cannonball 90
+		receivedId 24: received cannonball 91
+
+	Client 503604
+		receivedId 1: received cannonball 5
+		receivedId 2: received cannonball 6
+		receivedId 3: received cannonball 7
+		receivedId 4: received cannonball 8
+		receivedId 5: received cannonball 9
+		receivedId 6: received cannonball 10
+		receivedId 7: received cannonball 11
+		receivedId 8: received cannonball 12
+		receivedId 9: received cannonball 92
+		receivedId 10: received cannonball 93
+		receivedId 11: received cannonball 94
+		receivedId 12: received cannonball 95
+		receivedId 13: received cannonball 96
+		receivedId 14: received cannonball 97
+		receivedId 15: received cannonball 98
+		receivedId 16: received cannonball 99
+		receivedId 17: received cannonball 100
+
+	Client 503605
+		receivedId 1: received cannonball 77
+		receivedId 2: received cannonball 78
+		receivedId 3: received cannonball 79
+		receivedId 4: received cannonball 80
+		receivedId 5: received cannonball 81
+		receivedId 6: received cannonball 82
+		receivedId 7: received cannonball 83
+		receivedId 8: received cannonball 84
+		receivedId 9: received cannonball 85
+		receivedId 10: received cannonball 86
+
+	Client 503606
+		receivedId 1: received cannonball 53
+		receivedId 2: received cannonball 54
+		receivedId 3: received cannonball 55
+		receivedId 4: received cannonball 56
+		receivedId 5: received cannonball 57
+		receivedId 6: received cannonball 58
+		receivedId 7: received cannonball 59
+		receivedId 8: received cannonball 60
+		receivedId 9: received cannonball 61
+		receivedId 10: received cannonball 62
+
+	Client 503607
+		receivedId 1: received cannonball 37
+		receivedId 2: received cannonball 38
+		receivedId 3: received cannonball 39
+		receivedId 4: received cannonball 40
+		receivedId 5: received cannonball 41
+		receivedId 6: received cannonball 42
+		receivedId 7: received cannonball 43
+		receivedId 8: received cannonball 44
+
+	Client 503608
+		receivedId 1: received cannonball 46
+		receivedId 2: received cannonball 47
+		receivedId 3: received cannonball 48
+		receivedId 4: received cannonball 49
+		receivedId 5: received cannonball 50
+		receivedId 6: received cannonball 51
+		receivedId 7: received cannonball 52
+		receivedId 8: received cannonball 53
+		receivedId 9: received cannonball 54
+		receivedId 10: received cannonball 55
+		receivedId 11: received cannonball 56
+		receivedId 12: received cannonball 57
+		receivedId 13: received cannonball 58
+
+	Client 503609
+		receivedId 1: received cannonball 1
+		receivedId 2: received cannonball 69
+		receivedId 3: received cannonball 70
+		receivedId 4: received cannonball 71
+		receivedId 5: received cannonball 72
+		receivedId 6: received cannonball 73
+		receivedId 7: received cannonball 74
+		receivedId 8: received cannonball 75
+		receivedId 9: received cannonball 76
+		receivedId 10: received cannonball 77
+		receivedId 11: received cannonball 78
+		receivedId 12: received cannonball 79
+		receivedId 13: received cannonball 80
+		receivedId 14: received cannonball 81
+		receivedId 15: received cannonball 82
+		receivedId 16: received cannonball 83
+		receivedId 17: received cannonball 84
+		receivedId 18: received cannonball 85
+
+	Client 503610
+		receivedId 1: received cannonball 31
+		receivedId 2: received cannonball 32
+		receivedId 3: received cannonball 33
+		receivedId 4: received cannonball 34
+		receivedId 5: received cannonball 35
+		receivedId 6: received cannonball 36
+		receivedId 7: received cannonball 37
+		receivedId 8: received cannonball 38
+		receivedId 9: received cannonball 39
+		receivedId 10: received cannonball 40
+		receivedId 11: received cannonball 41
+		receivedId 12: received cannonball 42
+		receivedId 13: received cannonball 43
+		receivedId 14: received cannonball 44
+		receivedId 15: received cannonball 45
+		receivedId 16: received cannonball 46
+		receivedId 17: received cannonball 47
+		receivedId 18: received cannonball 48
+		receivedId 19: received cannonball 49
+
+	Client 503611
+		receivedId 1: received cannonball 61
+		receivedId 2: received cannonball 62
+		receivedId 3: received cannonball 63
+		receivedId 4: received cannonball 64
+		receivedId 5: received cannonball 65
+		receivedId 6: received cannonball 66
+		receivedId 7: received cannonball 67
+		receivedId 8: received cannonball 68
+		receivedId 9: received cannonball 69
+		receivedId 10: received cannonball 70
+		receivedId 11: received cannonball 71
+		receivedId 12: received cannonball 72
+		receivedId 13: received cannonball 73
+
+	Client 503612
+		receivedId 1: received cannonball 94
+		receivedId 2: received cannonball 95
+		receivedId 3: received cannonball 96
+		receivedId 4: received cannonball 97
+		receivedId 5: received cannonball 98
+		receivedId 6: received cannonball 99
+		receivedId 7: received cannonball 100
+
+	Client 503613
+		receivedId 1: received cannonball 16
+		receivedId 2: received cannonball 17
+		receivedId 3: received cannonball 18
+		receivedId 4: received cannonball 19
+		receivedId 5: received cannonball 20
+		receivedId 6: received cannonball 21
+		receivedId 7: received cannonball 22
+		receivedId 8: received cannonball 23
+		receivedId 9: received cannonball 24
+		receivedId 10: received cannonball 25
+		receivedId 11: received cannonball 26
+		receivedId 12: received cannonball 27
+		receivedId 13: received cannonball 28
+		receivedId 14: received cannonball 29
+		receivedId 15: received cannonball 30
+		receivedId 16: received cannonball 31
+		receivedId 17: received cannonball 32
+
+	Client 503614
+		receivedId 1: received cannonball 2
+		receivedId 2: received cannonball 3
+		receivedId 3: received cannonball 4
+		receivedId 4: received cannonball 5
+		receivedId 5: received cannonball 6
+		receivedId 6: received cannonball 7
+		receivedId 7: received cannonball 8
+		receivedId 8: received cannonball 9
+		receivedId 9: received cannonball 10
+		receivedId 10: received cannonball 11
+		receivedId 11: received cannonball 12
+		receivedId 12: received cannonball 13
+		receivedId 13: received cannonball 14
+		receivedId 14: received cannonball 15
+		receivedId 15: received cannonball 16
+
+	Client 503615
+		receivedId 1: received cannonball 1
+
+	Client 503618
+		receivedId 1: received cannonball 58
+		receivedId 2: received cannonball 59
+		receivedId 3: received cannonball 60
+		receivedId 4: received cannonball 61
+		receivedId 5: received cannonball 62
+		receivedId 6: received cannonball 63
+		receivedId 7: received cannonball 64
+		receivedId 8: received cannonball 65
+		receivedId 9: received cannonball 66
+
+	Client 503619
+		receivedId 1: received cannonball 99
+		receivedId 2: received cannonball 100
+
+	Client 503620
+		receivedId 1: received cannonball 44
+		receivedId 2: received cannonball 45
+		receivedId 3: received cannonball 46
+		receivedId 4: received cannonball 47
+		receivedId 5: received cannonball 48
+		receivedId 6: received cannonball 49
+		receivedId 7: received cannonball 50
+		receivedId 8: received cannonball 51
+		receivedId 9: received cannonball 52
+		receivedId 10: received cannonball 53
+
+	Client 503621
+		receivedId 1: received cannonball 26
+		receivedId 2: received cannonball 27
+		receivedId 3: received cannonball 28
+		receivedId 4: received cannonball 29
+		receivedId 5: received cannonball 30
+		receivedId 6: received cannonball 31
+		receivedId 7: received cannonball 32
+		receivedId 8: received cannonball 33
+		receivedId 9: received cannonball 34
+		receivedId 10: received cannonball 35
+		receivedId 11: received cannonball 36
+
+	Client 503622
+		receivedId 1: received cannonball 23
+		receivedId 2: received cannonball 24
+		receivedId 3: received cannonball 25
+		receivedId 4: received cannonball 26
+		receivedId 5: received cannonball 27
+		receivedId 6: received cannonball 28
+		receivedId 7: received cannonball 29
+		receivedId 8: received cannonball 30
+		receivedId 9: received cannonball 31
+		receivedId 10: received cannonball 32
+		receivedId 11: received cannonball 33
+		receivedId 12: received cannonball 34
+		receivedId 13: received cannonball 35
+		receivedId 14: received cannonball 36
+		receivedId 15: received cannonball 37
+		receivedId 16: received cannonball 38
+		receivedId 17: received cannonball 39
+		receivedId 18: received cannonball 40
+
+	Client 503623
+		receivedId 1: received cannonball 16
+		receivedId 2: received cannonball 17
+		receivedId 3: received cannonball 18
+		receivedId 4: received cannonball 19
+		receivedId 5: received cannonball 20
+		receivedId 6: received cannonball 21
+		receivedId 7: received cannonball 22
+		receivedId 8: received cannonball 23
+		receivedId 9: received cannonball 24
+		receivedId 10: received cannonball 25
+		receivedId 11: received cannonball 26
+		receivedId 12: received cannonball 27
+		receivedId 13: received cannonball 28
+		receivedId 14: received cannonball 29
+		receivedId 15: received cannonball 30
+		receivedId 16: received cannonball 31
+		receivedId 17: received cannonball 32
+		receivedId 18: received cannonball 33
+		receivedId 19: received cannonball 34
+		receivedId 20: received cannonball 35
+
+	Client 503624
+		receivedId 1: received cannonball 98
+		receivedId 2: received cannonball 99
+		receivedId 3: received cannonball 100
+
+	Client 503625
+		receivedId 1: received cannonball 75
+		receivedId 2: received cannonball 76
+		receivedId 3: received cannonball 77
+		receivedId 4: received cannonball 78
+		receivedId 5: received cannonball 79
+		receivedId 6: received cannonball 80
+		receivedId 7: received cannonball 81
+		receivedId 8: received cannonball 82
+		receivedId 9: received cannonball 83
+
+	Client 503626
+		receivedId 1: received cannonball 78
+		receivedId 2: received cannonball 79
+		receivedId 3: received cannonball 80
+		receivedId 4: received cannonball 81
+		receivedId 5: received cannonball 82
+		receivedId 6: received cannonball 83
+		receivedId 7: received cannonball 84
+		receivedId 8: received cannonball 85
+
+	Client 503627
+		receivedId 1: received cannonball 40
+		receivedId 2: received cannonball 41
+		receivedId 3: received cannonball 42
+		receivedId 4: received cannonball 43
+		receivedId 5: received cannonball 44
+		receivedId 6: received cannonball 45
+		receivedId 7: received cannonball 46
+		receivedId 8: received cannonball 47
+
+	Client 503628
+		receivedId 1: received cannonball 40
+		receivedId 2: received cannonball 41
+		receivedId 3: received cannonball 42
+		receivedId 4: received cannonball 43
+		receivedId 5: received cannonball 44
+		receivedId 6: received cannonball 45
+		receivedId 7: received cannonball 46
+		receivedId 8: received cannonball 47
+		receivedId 9: received cannonball 48
+
+	Client 503629
+		receivedId 1: received cannonball 16
+		receivedId 2: received cannonball 17
+		receivedId 3: received cannonball 18
+		receivedId 4: received cannonball 19
+		receivedId 5: received cannonball 20
+		receivedId 6: received cannonball 21
+		receivedId 7: received cannonball 22
+		receivedId 8: received cannonball 23
+		receivedId 9: received cannonball 24
+
+	Client 503630
+		receivedId 1: received cannonball 8
+		receivedId 2: received cannonball 9
+		receivedId 3: received cannonball 10
+		receivedId 4: received cannonball 11
+		receivedId 5: received cannonball 12
+		receivedId 6: received cannonball 13
+		receivedId 7: received cannonball 14
+		receivedId 8: received cannonball 15
+		receivedId 9: received cannonball 16
+		receivedId 10: received cannonball 17
+		receivedId 11: received cannonball 18
+		receivedId 12: received cannonball 19
+		receivedId 13: received cannonball 20
+		receivedId 14: received cannonball 21
+
+	Client 503631
+		receivedId 1: received cannonball 2
+		receivedId 2: received cannonball 3
+		receivedId 3: received cannonball 4
+		receivedId 4: received cannonball 5
+		receivedId 5: received cannonball 6
+		receivedId 6: received cannonball 7
+		receivedId 7: received cannonball 8
+		receivedId 8: received cannonball 9
+		receivedId 9: received cannonball 10
+		receivedId 10: received cannonball 11
+		receivedId 11: received cannonball 83
+		receivedId 12: received cannonball 84
+		receivedId 13: received cannonball 85
+		receivedId 14: received cannonball 86
+		receivedId 15: received cannonball 87
+		receivedId 16: received cannonball 88
+		receivedId 17: received cannonball 89
+		receivedId 18: received cannonball 90
+		receivedId 19: received cannonball 91
+		receivedId 20: received cannonball 92
+		receivedId 21: received cannonball 93
+		receivedId 22: received cannonball 94
+		receivedId 23: received cannonball 95
+		receivedId 24: received cannonball 96
+
+	Client 503632
+		receivedId 1: received cannonball 70
+		receivedId 2: received cannonball 71
+		receivedId 3: received cannonball 72
+		receivedId 4: received cannonball 73
+		receivedId 5: received cannonball 74
+		receivedId 6: received cannonball 75
+		receivedId 7: received cannonball 76
+		receivedId 8: received cannonball 77
+		receivedId 9: received cannonball 78
+		receivedId 10: received cannonball 79
+		receivedId 11: received cannonball 80
+		receivedId 12: received cannonball 81
+		receivedId 13: received cannonball 82
+		receivedId 14: received cannonball 83
+
+	Client 503633
+		receivedId 1: received cannonball 39
+		receivedId 2: received cannonball 40
+		receivedId 3: received cannonball 41
+		receivedId 4: received cannonball 42
+		receivedId 5: received cannonball 43
+		receivedId 6: received cannonball 44
+		receivedId 7: received cannonball 45
+		receivedId 8: received cannonball 46
+		receivedId 9: received cannonball 47
+		receivedId 10: received cannonball 48
+		receivedId 11: received cannonball 49
+		receivedId 12: received cannonball 50
+
+	Client 503634
+		receivedId 1: received cannonball 25
+		receivedId 2: received cannonball 26
+		receivedId 3: received cannonball 27
+		receivedId 4: received cannonball 28
+		receivedId 5: received cannonball 29
+		receivedId 6: received cannonball 30
+		receivedId 7: received cannonball 31
+		receivedId 8: received cannonball 32
+		receivedId 9: received cannonball 33
+		receivedId 10: received cannonball 34
+		receivedId 11: received cannonball 35
+		receivedId 12: received cannonball 36
+		receivedId 13: received cannonball 37
+		receivedId 14: received cannonball 38
+
+	Client 503635
+		receivedId 1: received cannonball 7
+		receivedId 2: received cannonball 8
+		receivedId 3: received cannonball 9
+		receivedId 4: received cannonball 10
+		receivedId 5: received cannonball 11
+		receivedId 6: received cannonball 12
+		receivedId 7: received cannonball 13
+		receivedId 8: received cannonball 14
+		receivedId 9: received cannonball 15
+		receivedId 10: received cannonball 16
+		receivedId 11: received cannonball 17
+		receivedId 12: received cannonball 18
+		receivedId 13: received cannonball 19
+		receivedId 14: received cannonball 20
+		receivedId 15: received cannonball 97
+		receivedId 16: received cannonball 98
+		receivedId 17: received cannonball 99
+		receivedId 18: received cannonball 100
+
+	Client 503636
+		receivedId 1: received cannonball 1
+		receivedId 2: received cannonball 2
+		receivedId 3: received cannonball 84
+		receivedId 4: received cannonball 85
+		receivedId 5: received cannonball 86
+		receivedId 6: received cannonball 87
+		receivedId 7: received cannonball 88
+		receivedId 8: received cannonball 89
+		receivedId 9: received cannonball 90
+		receivedId 10: received cannonball 91
+		receivedId 11: received cannonball 92
+		receivedId 12: received cannonball 93
+
+	Client 503637
+		receivedId 1: received cannonball 48
+		receivedId 2: received cannonball 49
+		receivedId 3: received cannonball 50
+		receivedId 4: received cannonball 51
+		receivedId 5: received cannonball 52
+		receivedId 6: received cannonball 53
+		receivedId 7: received cannonball 54
+		receivedId 8: received cannonball 55
+		receivedId 9: received cannonball 56
+		receivedId 10: received cannonball 57
+		receivedId 11: received cannonball 58
+		receivedId 12: received cannonball 59
+		receivedId 13: received cannonball 60
+
+	Client 503638
+		receivedId 1: received cannonball 46
+		receivedId 2: received cannonball 47
+		receivedId 3: received cannonball 48
+		receivedId 4: received cannonball 49
+		receivedId 5: received cannonball 50
+		receivedId 6: received cannonball 51
+		receivedId 7: received cannonball 52
+		receivedId 8: received cannonball 53
+		receivedId 9: received cannonball 54
+		receivedId 10: received cannonball 55
+		receivedId 11: received cannonball 56
+		receivedId 12: received cannonball 57
+		receivedId 13: received cannonball 58
+
+	Client 503639
+		receivedId 1: received cannonball 21
+		receivedId 2: received cannonball 22
+		receivedId 3: received cannonball 23
+		receivedId 4: received cannonball 24
+		receivedId 5: received cannonball 25
+		receivedId 6: received cannonball 26
+		receivedId 7: received cannonball 27
+		receivedId 8: received cannonball 28
+		receivedId 9: received cannonball 29
+		receivedId 10: received cannonball 30
+		receivedId 11: received cannonball 31
+
+	Client 503640
+		receivedId 1: received cannonball 4
+		receivedId 2: received cannonball 5
+		receivedId 3: received cannonball 6
+		receivedId 4: received cannonball 7
+		receivedId 5: received cannonball 8
+		receivedId 6: received cannonball 9
+		receivedId 7: received cannonball 10
+		receivedId 8: received cannonball 11
+		receivedId 9: received cannonball 12
+		receivedId 10: received cannonball 13
+		receivedId 11: received cannonball 14
+		receivedId 12: received cannonball 15
+		receivedId 13: received cannonball 16
+		receivedId 14: received cannonball 17
+		receivedId 15: received cannonball 18
+		receivedId 16: received cannonball 19
+		receivedId 17: received cannonball 20
+		receivedId 18: received cannonball 21
+		receivedId 19: received cannonball 22
+
+	Client 503641
+		receivedId 1: received cannonball 75
+		receivedId 2: received cannonball 76
+		receivedId 3: received cannonball 77
+		receivedId 4: received cannonball 78
+		receivedId 5: received cannonball 79
+		receivedId 6: received cannonball 80
+		receivedId 7: received cannonball 81
+		receivedId 8: received cannonball 82
+		receivedId 9: received cannonball 83
+		receivedId 10: received cannonball 84
+		receivedId 11: received cannonball 85
+		receivedId 12: received cannonball 86
+
+	Client 503642
+		receivedId 1: received cannonball 55
+		receivedId 2: received cannonball 56
+		receivedId 3: received cannonball 57
+		receivedId 4: received cannonball 58
+		receivedId 5: received cannonball 59
+		receivedId 6: received cannonball 60
+		receivedId 7: received cannonball 61
+		receivedId 8: received cannonball 62
+		receivedId 9: received cannonball 63
+		receivedId 10: received cannonball 64
+		receivedId 11: received cannonball 65
+
+	Client 503643
+		receivedId 1: received cannonball 39
+		receivedId 2: received cannonball 40
+		receivedId 3: received cannonball 41
+		receivedId 4: received cannonball 42
+		receivedId 5: received cannonball 43
+		receivedId 6: received cannonball 44
+		receivedId 7: received cannonball 45
+		receivedId 8: received cannonball 46
+		receivedId 9: received cannonball 47
+		receivedId 10: received cannonball 48
+		receivedId 11: received cannonball 49
+		receivedId 12: received cannonball 50
+
+	Client 503644
+		receivedId 1: received cannonball 66
+		receivedId 2: received cannonball 67
+		receivedId 3: received cannonball 68
+		receivedId 4: received cannonball 69
+		receivedId 5: received cannonball 70
+		receivedId 6: received cannonball 71
+		receivedId 7: received cannonball 72
+		receivedId 8: received cannonball 73
+		receivedId 9: received cannonball 74
+		receivedId 10: received cannonball 75
+		receivedId 11: received cannonball 76
+		receivedId 12: received cannonball 77
+		receivedId 13: received cannonball 78
+		receivedId 14: received cannonball 79
+		receivedId 15: received cannonball 80
+		receivedId 16: received cannonball 81
+		receivedId 17: received cannonball 82
+		receivedId 18: received cannonball 83
+		receivedId 19: received cannonball 84
+		receivedId 20: received cannonball 85
+		receivedId 21: received cannonball 86
+		receivedId 22: received cannonball 87
+		receivedId 23: received cannonball 88
+
+	Client 503645
+		receivedId 1: received cannonball 4
+		receivedId 2: received cannonball 5
+		receivedId 3: received cannonball 6
+		receivedId 4: received cannonball 7
+		receivedId 5: received cannonball 8
+		receivedId 6: received cannonball 9
+		receivedId 7: received cannonball 10
+		receivedId 8: received cannonball 11
+		receivedId 9: received cannonball 12
+		receivedId 10: received cannonball 13
+		receivedId 11: received cannonball 14
+		receivedId 12: received cannonball 15
+		receivedId 13: received cannonball 79
+		receivedId 14: received cannonball 80
+		receivedId 15: received cannonball 81
+		receivedId 16: received cannonball 82
+		receivedId 17: received cannonball 83
+		receivedId 18: received cannonball 84
+		receivedId 19: received cannonball 85
+		receivedId 20: received cannonball 86
+		receivedId 21: received cannonball 87
+
+	Client 503647
+		receivedId 1: received cannonball 56
+		receivedId 2: received cannonball 57
+		receivedId 3: received cannonball 58
+		receivedId 4: received cannonball 59
+		receivedId 5: received cannonball 60
+		receivedId 6: received cannonball 61
+		receivedId 7: received cannonball 62
+		receivedId 8: received cannonball 63
+		receivedId 9: received cannonball 64
+		receivedId 10: received cannonball 65
+
+	Client 503648
+		receivedId 1: received cannonball 48
+		receivedId 2: received cannonball 49
+		receivedId 3: received cannonball 50
+		receivedId 4: received cannonball 51
+		receivedId 5: received cannonball 52
+		receivedId 6: received cannonball 53
+		receivedId 7: received cannonball 54
+		receivedId 8: received cannonball 55
+		receivedId 9: received cannonball 56
+		receivedId 10: received cannonball 57
+		receivedId 11: received cannonball 58
+		receivedId 12: received cannonball 59
+		receivedId 13: received cannonball 60
+		receivedId 14: received cannonball 61
+		receivedId 15: received cannonball 62
+		receivedId 16: received cannonball 63
+
+	Client 503649
+		receivedId 1: received cannonball 8
+		receivedId 2: received cannonball 9
+		receivedId 3: received cannonball 10
+		receivedId 4: received cannonball 11
+		receivedId 5: received cannonball 12
+		receivedId 6: received cannonball 13
+		receivedId 7: received cannonball 14
+		receivedId 8: received cannonball 15
+		receivedId 9: received cannonball 16
+		receivedId 10: received cannonball 17
+
+	Client 503650
+		receivedId 1: received cannonball 8
+		receivedId 2: received cannonball 9
+		receivedId 3: received cannonball 10
+		receivedId 4: received cannonball 11
+		receivedId 5: received cannonball 12
+		receivedId 6: received cannonball 13
+		receivedId 7: received cannonball 14
+		receivedId 8: received cannonball 15
+		receivedId 9: received cannonball 16
+		receivedId 10: received cannonball 17
+
+	Client 503651
+		receivedId 1: received cannonball 1
+		receivedId 2: received cannonball 2
+		receivedId 3: received cannonball 3
+		receivedId 4: received cannonball 4
+		receivedId 5: received cannonball 5
+		receivedId 6: received cannonball 6
+		receivedId 7: received cannonball 7
+		receivedId 8: received cannonball 8
+		receivedId 9: received cannonball 9
+		receivedId 10: received cannonball 10
+		receivedId 11: received cannonball 11
+		receivedId 12: received cannonball 12
+		receivedId 13: received cannonball 13
+		receivedId 14: received cannonball 14
+		receivedId 15: received cannonball 15
+
+	Client 503652
+		receivedId 1: received cannonball 81
+		receivedId 2: received cannonball 82
+		receivedId 3: received cannonball 83
+		receivedId 4: received cannonball 84
+		receivedId 5: received cannonball 85
+		receivedId 6: received cannonball 86
+		receivedId 7: received cannonball 87
+		receivedId 8: received cannonball 88
+		receivedId 9: received cannonball 89
+		receivedId 10: received cannonball 90
+		receivedId 11: received cannonball 91
+
+	Client 503653
+		receivedId 1: received cannonball 81
+		receivedId 2: received cannonball 82
+		receivedId 3: received cannonball 83
+		receivedId 4: received cannonball 84
+		receivedId 5: received cannonball 85
+		receivedId 6: received cannonball 86
+		receivedId 7: received cannonball 87
+		receivedId 8: received cannonball 88
+		receivedId 9: received cannonball 89
+		receivedId 10: received cannonball 90
+		receivedId 11: received cannonball 91
+
+	Client 503654
+		receivedId 1: received cannonball 52
+		receivedId 2: received cannonball 53
+		receivedId 3: received cannonball 54
+		receivedId 4: received cannonball 55
+		receivedId 5: received cannonball 56
+		receivedId 6: received cannonball 57
+		receivedId 7: received cannonball 58
+		receivedId 8: received cannonball 59
+		receivedId 9: received cannonball 60
+		receivedId 10: received cannonball 61
+		receivedId 11: received cannonball 62
+
+	Client 503655
+		receivedId 1: received cannonball 67
+		receivedId 2: received cannonball 68
+		receivedId 3: received cannonball 69
+		receivedId 4: received cannonball 70
+		receivedId 5: received cannonball 71
+		receivedId 6: received cannonball 72
+		receivedId 7: received cannonball 73
+		receivedId 8: received cannonball 74
+		receivedId 9: received cannonball 75
+		receivedId 10: received cannonball 76
+		receivedId 11: received cannonball 77
+		receivedId 12: received cannonball 78
+		receivedId 13: received cannonball 79
+		receivedId 14: received cannonball 80
+		receivedId 15: received cannonball 81
+		receivedId 16: received cannonball 82
+		receivedId 17: received cannonball 83
+
+	Client 503656
+		receivedId 1: received cannonball 10
+		receivedId 2: received cannonball 11
+		receivedId 3: received cannonball 12
+		receivedId 4: received cannonball 13
+		receivedId 5: received cannonball 14
+		receivedId 6: received cannonball 15
+		receivedId 7: received cannonball 16
+		receivedId 8: received cannonball 17
+		receivedId 9: received cannonball 18
+
+	Client 503657
+		receivedId 1: received cannonball 1
+		receivedId 2: received cannonball 2
+		receivedId 3: received cannonball 3
+		receivedId 4: received cannonball 4
+
+	Client 503658
+		receivedId 1: received cannonball 1
+		receivedId 2: received cannonball 2
+		receivedId 3: received cannonball 3
+		receivedId 4: received cannonball 4
+		receivedId 5: received cannonball 5
+		receivedId 6: received cannonball 6
+		receivedId 7: received cannonball 7
+
+	Client 503662
+		receivedId 1: received cannonball 83
+		receivedId 2: received cannonball 84
+		receivedId 3: received cannonball 85
+		receivedId 4: received cannonball 86
+		receivedId 5: received cannonball 87
+		receivedId 6: received cannonball 88
+		receivedId 7: received cannonball 89
+		receivedId 8: received cannonball 90
+		receivedId 9: received cannonball 91
+		receivedId 10: received cannonball 92
+		receivedId 11: received cannonball 93
+		receivedId 12: received cannonball 94
+		receivedId 13: received cannonball 95
+		receivedId 14: received cannonball 96
+		receivedId 15: received cannonball 97
+		receivedId 16: received cannonball 98
+
+	Client 503663
+		receivedId 1: received cannonball 70
+		receivedId 2: received cannonball 71
+		receivedId 3: received cannonball 72
+		receivedId 4: received cannonball 73
+		receivedId 5: received cannonball 74
+		receivedId 6: received cannonball 75
+		receivedId 7: received cannonball 76
+		receivedId 8: received cannonball 77
+		receivedId 9: received cannonball 78
+		receivedId 10: received cannonball 79
+		receivedId 11: received cannonball 80
+		receivedId 12: received cannonball 81
+		receivedId 13: received cannonball 82
+		receivedId 14: received cannonball 83
+		receivedId 15: received cannonball 84
+		receivedId 16: received cannonball 85
+
+	Client 503664
+		receivedId 1: received cannonball 66
+		receivedId 2: received cannonball 67
+		receivedId 3: received cannonball 68
+		receivedId 4: received cannonball 69
+		receivedId 5: received cannonball 70
+		receivedId 6: received cannonball 71
+		receivedId 7: received cannonball 72
+		receivedId 8: received cannonball 73
+		receivedId 9: received cannonball 74
+		receivedId 10: received cannonball 75
+
+	Client 503665
+		receivedId 1: received cannonball 73
+		receivedId 2: received cannonball 74
+		receivedId 3: received cannonball 75
+		receivedId 4: received cannonball 76
+		receivedId 5: received cannonball 77
+		receivedId 6: received cannonball 78
+		receivedId 7: received cannonball 79
+		receivedId 8: received cannonball 80
+		receivedId 9: received cannonball 81
+		receivedId 10: received cannonball 82
+		receivedId 11: received cannonball 83
+		receivedId 12: received cannonball 84
+
+	Client 503666
+		receivedId 1: received cannonball 14
+		receivedId 2: received cannonball 15
+		receivedId 3: received cannonball 16
+		receivedId 4: received cannonball 17
+		receivedId 5: received cannonball 18
+		receivedId 6: received cannonball 19
+		receivedId 7: received cannonball 20
+		receivedId 8: received cannonball 21
+		receivedId 9: received cannonball 22
+		receivedId 10: received cannonball 23
+		receivedId 11: received cannonball 24
+		receivedId 12: received cannonball 25
+		receivedId 13: received cannonball 26
+
+	Client 503667
+		receivedId 1: received cannonball 1
+		receivedId 2: received cannonball 2
+		receivedId 3: received cannonball 3
+
+	Client 503669
+		receivedId 1: received cannonball 76
+		receivedId 2: received cannonball 77
+		receivedId 3: received cannonball 78
+		receivedId 4: received cannonball 79
+		receivedId 5: received cannonball 80
+		receivedId 6: received cannonball 81
+		receivedId 7: received cannonball 82
+		receivedId 8: received cannonball 83
+		receivedId 9: received cannonball 84
+		receivedId 10: received cannonball 85
+
+	Client 503670
+		receivedId 1: received cannonball 80
+		receivedId 2: received cannonball 81
+		receivedId 3: received cannonball 82
+		receivedId 4: received cannonball 83
+		receivedId 5: received cannonball 84
+		receivedId 6: received cannonball 85
+		receivedId 7: received cannonball 86
+		receivedId 8: received cannonball 87
+		receivedId 9: received cannonball 88
+
+	Client 503673
+		receivedId 1: received cannonball 48
+		receivedId 2: received cannonball 49
+		receivedId 3: received cannonball 50
+		receivedId 4: received cannonball 51
+		receivedId 5: received cannonball 52
+		receivedId 6: received cannonball 53
+		receivedId 7: received cannonball 54
+		receivedId 8: received cannonball 55
+		receivedId 9: received cannonball 56
+
+	Client 503674
+		receivedId 1: received cannonball 42
+		receivedId 2: received cannonball 43
+		receivedId 3: received cannonball 44
+		receivedId 4: received cannonball 45
+		receivedId 5: received cannonball 46
+		receivedId 6: received cannonball 47
+		receivedId 7: received cannonball 48
+		receivedId 8: received cannonball 49
+		receivedId 9: received cannonball 50
+		receivedId 10: received cannonball 51
+
+	Client 503675
+		receivedId 1: received cannonball 21
+		receivedId 2: received cannonball 22
+		receivedId 3: received cannonball 23
+		receivedId 4: received cannonball 24
+		receivedId 5: received cannonball 25
+		receivedId 6: received cannonball 26
+		receivedId 7: received cannonball 27
+		receivedId 8: received cannonball 28
+		receivedId 9: received cannonball 29
+		receivedId 10: received cannonball 30
+
+	Client 503676
+		receivedId 1: received cannonball 1
+		receivedId 2: received cannonball 2
+		receivedId 3: received cannonball 3
+		receivedId 4: received cannonball 4
+		receivedId 5: received cannonball 5
+		receivedId 6: received cannonball 6
+		receivedId 7: received cannonball 7
+		receivedId 8: received cannonball 8
+
+	Client 503677
+		receivedId 1: received cannonball 1
+		receivedId 2: received cannonball 2
+		receivedId 3: received cannonball 3
+		receivedId 4: received cannonball 4
+		receivedId 5: received cannonball 5
+		receivedId 6: received cannonball 6
+		receivedId 7: received cannonball 7
+		receivedId 8: received cannonball 8
+		receivedId 9: received cannonball 9
+		receivedId 10: received cannonball 10
+		receivedId 11: received cannonball 11
+		receivedId 12: received cannonball 12
+		receivedId 13: received cannonball 13
+		receivedId 14: received cannonball 14
+
+	Client 503678
+		receivedId 1: received cannonball 88
+		receivedId 2: received cannonball 89
+		receivedId 3: received cannonball 90
+		receivedId 4: received cannonball 91
+		receivedId 5: received cannonball 92
+		receivedId 6: received cannonball 93
+		receivedId 7: received cannonball 94
+		receivedId 8: received cannonball 95
+		receivedId 9: received cannonball 96
+		receivedId 10: received cannonball 97
+		receivedId 11: received cannonball 98
+		receivedId 12: received cannonball 99
+		receivedId 13: received cannonball 100
+
+	Client 503679
+		receivedId 1: received cannonball 97
+		receivedId 2: received cannonball 98
+		receivedId 3: received cannonball 99
+		receivedId 4: received cannonball 100
+
+	Client 503680
+		receivedId 1: received cannonball 95
+		receivedId 2: received cannonball 96
+		receivedId 3: received cannonball 97
+		receivedId 4: received cannonball 98
+		receivedId 5: received cannonball 99
+		receivedId 6: received cannonball 100
+
+	Client 503681
+		receivedId 1: received cannonball 39
+		receivedId 2: received cannonball 40
+		receivedId 3: received cannonball 41
+		receivedId 4: received cannonball 42
+		receivedId 5: received cannonball 43
+		receivedId 6: received cannonball 44
+		receivedId 7: received cannonball 45
+		receivedId 8: received cannonball 46
+		receivedId 9: received cannonball 47
+		receivedId 10: received cannonball 48
+		receivedId 11: received cannonball 49
+		receivedId 12: received cannonball 50
+		receivedId 13: received cannonball 51
+		receivedId 14: received cannonball 52
+
+	Client 503682
+		receivedId 1: received cannonball 19
+		receivedId 2: received cannonball 20
+		receivedId 3: received cannonball 21
+		receivedId 4: received cannonball 22
+		receivedId 5: received cannonball 23
+		receivedId 6: received cannonball 24
+		receivedId 7: received cannonball 25
+		receivedId 8: received cannonball 26
+		receivedId 9: received cannonball 27
+		receivedId 10: received cannonball 28
+		receivedId 11: received cannonball 29
+		receivedId 12: received cannonball 30
+
+	Client 503683
+		receivedId 1: received cannonball 23
+		receivedId 2: received cannonball 24
+		receivedId 3: received cannonball 25
+		receivedId 4: received cannonball 26
+		receivedId 5: received cannonball 27
+		receivedId 6: received cannonball 28
+		receivedId 7: received cannonball 29
+		receivedId 8: received cannonball 30
+		receivedId 9: received cannonball 31
+		receivedId 10: received cannonball 32
+		receivedId 11: received cannonball 33
+		receivedId 12: received cannonball 34
+		receivedId 13: received cannonball 35
+		receivedId 14: received cannonball 36
+		receivedId 15: received cannonball 37
+		receivedId 16: received cannonball 38
+		receivedId 17: received cannonball 39
+		receivedId 18: received cannonball 40
+		receivedId 19: received cannonball 41
+		receivedId 20: received cannonball 42
+		receivedId 21: received cannonball 43
+
+	Client 503684
+		receivedId 1: received cannonball 73
+		receivedId 2: received cannonball 74
+		receivedId 3: received cannonball 75
+		receivedId 4: received cannonball 76
+		receivedId 5: received cannonball 77
+		receivedId 6: received cannonball 78
+		receivedId 7: received cannonball 79
+		receivedId 8: received cannonball 80
+		receivedId 9: received cannonball 81
+		receivedId 10: received cannonball 82
+		receivedId 11: received cannonball 83
+		receivedId 12: received cannonball 84
+		receivedId 13: received cannonball 85
+		receivedId 14: received cannonball 86
+		receivedId 15: received cannonball 87
+		receivedId 16: received cannonball 88
+		receivedId 17: received cannonball 89
+		receivedId 18: received cannonball 90
+		receivedId 19: received cannonball 91
+		receivedId 20: received cannonball 92
+		receivedId 21: received cannonball 93
+		receivedId 22: received cannonball 94
+		receivedId 23: received cannonball 95
+		receivedId 24: received cannonball 96
+		receivedId 25: received cannonball 97
+		receivedId 26: received cannonball 98
+		receivedId 27: received cannonball 99
+		receivedId 28: received cannonball 100
+
+server: printing loss report
+
+	Client 503586
+		How many packets received: 78
+		How many packets expected: 100
+		How many packets lost: 22
+
+	Client 503587
+		How many packets received: 53
+		How many packets expected: 100
+		How many packets lost: 47
+
+	Client 503588
+		How many packets received: 75
+		How many packets expected: 100
+		How many packets lost: 25
+
+	Client 503589
+		How many packets received: 61
+		How many packets expected: 100
+		How many packets lost: 39
+
+	Client 503590
+		How many packets received: 55
+		How many packets expected: 100
+		How many packets lost: 45
+
+	Client 503591
+		How many packets received: 26
+		How many packets expected: 100
+		How many packets lost: 74
+
+	Client 503592
+		How many packets received: 15
+		How many packets expected: 100
+		How many packets lost: 85
+
+	Client 503593
+		How many packets received: 16
+		How many packets expected: 100
+		How many packets lost: 84
+
+	Client 503595
+		How many packets received: 18
+		How many packets expected: 100
+		How many packets lost: 82
+
+	Client 503596
+		How many packets received: 24
+		How many packets expected: 100
+		How many packets lost: 76
+
+	Client 503599
+		How many packets received: 4
+		How many packets expected: 100
+		How many packets lost: 96
+
+	Client 503600
+		How many packets received: 9
+		How many packets expected: 100
+		How many packets lost: 91
+
+	Client 503601
+		How many packets received: 10
+		How many packets expected: 100
+		How many packets lost: 90
+
+	Client 503602
+		How many packets received: 15
+		How many packets expected: 100
+		How many packets lost: 85
+
+	Client 503603
+		How many packets received: 24
+		How many packets expected: 100
+		How many packets lost: 76
+
+	Client 503604
+		How many packets received: 17
+		How many packets expected: 100
+		How many packets lost: 83
+
+	Client 503605
+		How many packets received: 10
+		How many packets expected: 100
+		How many packets lost: 90
+
+	Client 503606
+		How many packets received: 10
+		How many packets expected: 100
+		How many packets lost: 90
+
+	Client 503607
+		How many packets received: 8
+		How many packets expected: 100
+		How many packets lost: 92
+
+	Client 503608
+		How many packets received: 13
+		How many packets expected: 100
+		How many packets lost: 87
+
+	Client 503609
+		How many packets received: 18
+		How many packets expected: 100
+		How many packets lost: 82
+
+	Client 503610
+		How many packets received: 19
+		How many packets expected: 100
+		How many packets lost: 81
+
+	Client 503611
+		How many packets received: 13
+		How many packets expected: 100
+		How many packets lost: 87
+
+	Client 503612
+		How many packets received: 7
+		How many packets expected: 100
+		How many packets lost: 93
+
+	Client 503613
+		How many packets received: 17
+		How many packets expected: 100
+		How many packets lost: 83
+
+	Client 503614
+		How many packets received: 15
+		How many packets expected: 100
+		How many packets lost: 85
+
+	Client 503615
+		How many packets received: 1
+		How many packets expected: 100
+		How many packets lost: 99
+
+	Client 503618
+		How many packets received: 9
+		How many packets expected: 100
+		How many packets lost: 91
+
+	Client 503619
+		How many packets received: 2
+		How many packets expected: 100
+		How many packets lost: 98
+
+	Client 503620
+		How many packets received: 10
+		How many packets expected: 100
+		How many packets lost: 90
+
+	Client 503621
+		How many packets received: 11
+		How many packets expected: 100
+		How many packets lost: 89
+
+	Client 503622
+		How many packets received: 18
+		How many packets expected: 100
+		How many packets lost: 82
+
+	Client 503623
+		How many packets received: 20
+		How many packets expected: 100
+		How many packets lost: 80
+
+	Client 503624
+		How many packets received: 3
+		How many packets expected: 100
+		How many packets lost: 97
+
+	Client 503625
+		How many packets received: 9
+		How many packets expected: 100
+		How many packets lost: 91
+
+	Client 503626
+		How many packets received: 8
+		How many packets expected: 100
+		How many packets lost: 92
+
+	Client 503627
+		How many packets received: 8
+		How many packets expected: 100
+		How many packets lost: 92
+
+	Client 503628
+		How many packets received: 9
+		How many packets expected: 100
+		How many packets lost: 91
+
+	Client 503629
+		How many packets received: 9
+		How many packets expected: 100
+		How many packets lost: 91
+
+	Client 503630
+		How many packets received: 14
+		How many packets expected: 100
+		How many packets lost: 86
+
+	Client 503631
+		How many packets received: 24
+		How many packets expected: 100
+		How many packets lost: 76
+
+	Client 503632
+		How many packets received: 14
+		How many packets expected: 100
+		How many packets lost: 86
+
+	Client 503633
+		How many packets received: 12
+		How many packets expected: 100
+		How many packets lost: 88
+
+	Client 503634
+		How many packets received: 14
+		How many packets expected: 100
+		How many packets lost: 86
+
+	Client 503635
+		How many packets received: 18
+		How many packets expected: 100
+		How many packets lost: 82
+
+	Client 503636
+		How many packets received: 12
+		How many packets expected: 100
+		How many packets lost: 88
+
+	Client 503637
+		How many packets received: 13
+		How many packets expected: 100
+		How many packets lost: 87
+
+	Client 503638
+		How many packets received: 13
+		How many packets expected: 100
+		How many packets lost: 87
+
+	Client 503639
+		How many packets received: 11
+		How many packets expected: 100
+		How many packets lost: 89
+
+	Client 503640
+		How many packets received: 19
+		How many packets expected: 100
+		How many packets lost: 81
+
+	Client 503641
+		How many packets received: 12
+		How many packets expected: 100
+		How many packets lost: 88
+
+	Client 503642
+		How many packets received: 11
+		How many packets expected: 100
+		How many packets lost: 89
+
+	Client 503643
+		How many packets received: 12
+		How many packets expected: 100
+		How many packets lost: 88
+
+	Client 503644
+		How many packets received: 23
+		How many packets expected: 100
+		How many packets lost: 77
+
+	Client 503645
+		How many packets received: 21
+		How many packets expected: 100
+		How many packets lost: 79
+
+	Client 503647
+		How many packets received: 10
+		How many packets expected: 100
+		How many packets lost: 90
+
+	Client 503648
+		How many packets received: 16
+		How many packets expected: 100
+		How many packets lost: 84
+
+	Client 503649
+		How many packets received: 10
+		How many packets expected: 100
+		How many packets lost: 90
+
+	Client 503650
+		How many packets received: 10
+		How many packets expected: 100
+		How many packets lost: 90
+
+	Client 503651
+		How many packets received: 15
+		How many packets expected: 100
+		How many packets lost: 85
+
+	Client 503652
+		How many packets received: 11
+		How many packets expected: 100
+		How many packets lost: 89
+
+	Client 503653
+		How many packets received: 11
+		How many packets expected: 100
+		How many packets lost: 89
+
+	Client 503654
+		How many packets received: 11
+		How many packets expected: 100
+		How many packets lost: 89
+
+	Client 503655
+		How many packets received: 17
+		How many packets expected: 100
+		How many packets lost: 83
+
+	Client 503656
+		How many packets received: 9
+		How many packets expected: 100
+		How many packets lost: 91
+
+	Client 503657
+		How many packets received: 4
+		How many packets expected: 100
+		How many packets lost: 96
+
+	Client 503658
+		How many packets received: 7
+		How many packets expected: 100
+		How many packets lost: 93
+
+	Client 503662
+		How many packets received: 16
+		How many packets expected: 100
+		How many packets lost: 84
+
+	Client 503663
+		How many packets received: 16
+		How many packets expected: 100
+		How many packets lost: 84
+
+	Client 503664
+		How many packets received: 10
+		How many packets expected: 100
+		How many packets lost: 90
+
+	Client 503665
+		How many packets received: 12
+		How many packets expected: 100
+		How many packets lost: 88
+
+	Client 503666
+		How many packets received: 13
+		How many packets expected: 100
+		How many packets lost: 87
+
+	Client 503667
+		How many packets received: 3
+		How many packets expected: 100
+		How many packets lost: 97
+
+	Client 503669
+		How many packets received: 10
+		How many packets expected: 100
+		How many packets lost: 90
+
+	Client 503670
+		How many packets received: 9
+		How many packets expected: 100
+		How many packets lost: 91
+
+	Client 503673
+		How many packets received: 9
+		How many packets expected: 100
+		How many packets lost: 91
+
+	Client 503674
+		How many packets received: 10
+		How many packets expected: 100
+		How many packets lost: 90
+
+	Client 503675
+		How many packets received: 10
+		How many packets expected: 100
+		How many packets lost: 90
+
+	Client 503676
+		How many packets received: 8
+		How many packets expected: 100
+		How many packets lost: 92
+
+	Client 503677
+		How many packets received: 14
+		How many packets expected: 100
+		How many packets lost: 86
+
+	Client 503678
+		How many packets received: 13
+		How many packets expected: 100
+		How many packets lost: 87
+
+	Client 503679
+		How many packets received: 4
+		How many packets expected: 100
+		How many packets lost: 96
+
+	Client 503680
+		How many packets received: 6
+		How many packets expected: 100
+		How many packets lost: 94
+
+	Client 503681
+		How many packets received: 14
+		How many packets expected: 100
+		How many packets lost: 86
+
+	Client 503682
+		How many packets received: 12
+		How many packets expected: 100
+		How many packets lost: 88
+
+	Client 503683
+		How many packets received: 21
+		How many packets expected: 100
+		How many packets lost: 79
+
+	Client 503684
+		How many packets received: 28
+		How many packets expected: 100
+		How many packets lost: 72
+
+server: out of order report
+
+server: total of 10000.00 messages expected
+server: lost 7341 messages
+server: packet loss rate of 73.41%
+server: received 0 messages out of order
+

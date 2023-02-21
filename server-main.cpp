@@ -16,14 +16,22 @@ void resolveTimer(int signum){
 
 int main(int argc, char** argv) {
   if(argc < 2 || argc > 3) {
-    printf("Usage: server <port> [silent]\n");
+    fprintf(stdout, "Usage: server <port> [file]\n");
     exit(1);
   }
   
   char* port = argv[1];
-  bool silent = argc == 3 ? true : false;
 
-  Server* server = serverConstructor((char*)port, isDone, silent);
+  FILE *output = stdout;
+  if(argc == 3) {
+    output = fopen(argv[2], "w");
+    if(!output){
+      fprintf(stdout, "Error opening file %s\n", argv[2]);
+      exit(1);
+    }
+  }
+
+  Server* server = serverConstructor((char*)port, isDone, output);
 
   struct sigaction action;
   action.sa_handler = resolveTimer;
@@ -31,8 +39,7 @@ int main(int argc, char** argv) {
   action.sa_flags = 0 ;
   sigaction (SIGALRM, &action, 0);
 
-  if(!silent)
-    printf("server: now waiting messages...\n");
+  fprintf(server->output, "server: now waiting messages...\n");
   for(;!isDone;){
     alarm(5);
     receiveFromClient(server);

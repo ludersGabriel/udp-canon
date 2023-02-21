@@ -34,7 +34,8 @@ typedef struct SERVER {
 
   struct hostent* hostInfo;
   char hostname[MAXHOSTNAME];
-  bool silent;
+
+  FILE* output;
 
   int totalClientsTalking = 0;
   int totalMessagesExpected = 0;
@@ -44,7 +45,7 @@ typedef struct SERVER {
   bool* isDone;
 } Server;
 
-Server* serverConstructor(char* port, bool& isDone, bool silent);
+Server* serverConstructor(char* port, bool& isDone, FILE* output);
 void serverDestructor(Server* server);
 void receiveFromClient(Server* server);
 void sendToClient(Server* server);

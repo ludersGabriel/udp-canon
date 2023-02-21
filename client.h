@@ -27,14 +27,14 @@ typedef struct CLIENT {
 Client* clientConstructor(char* svName, char* port);
 void clientDestructor(Client* client);
 void sendToServer(Client* client, Message* msg);
-void parentMain(vector<int> pids, bool silent = false);
-void childMain(int balls, char* server, char* port, bool silent = false);
+void parentMain(vector<int> pids, FILE* output);
+void childMain(int balls, char* server, char* port);
 void handshake(
     char* server, 
     char* port, 
     char* clients, 
-    char* cannonbals, 
-    bool silent = false
+    char* cannonbals,
+    FILE* output
 );
 
 #endif
