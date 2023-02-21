@@ -182,13 +182,17 @@
       <p>
         Os resultados obtidos foram curiosos. A equipe percebeu que a comunicação entre duas
         máquinas diferentes e a comunicação nas máquinas pessoais dos integrantes do grupo
-        não apresentaram resutados muito diferentes.
+        tiveram resultados similares no teste com número de clientes fixo e = 1, mas drasticamente diferentes
+        no teste com um número variável de clientes.
         <br><br>
         Apesar de a comunicação nas máquinas pessoais nem usar a placa de rede, notamos uma grande
         taxa de perda de pacotes quando o número de clientes era muito alto ou muitas mensagens
-        estavam sendo enviadas por apenas um cliente. O mesmo ocorreu nas máquinas do laboratório,
-        levando o grupo a acreditar que o IP não é responsável pelas perdas, mas sim a saturação
-        do buffer UDP.
+        estavam sendo enviadas por apenas um cliente. Nas máquinas do laboratório, por outro lado,
+        houve uma taxa alta de perdas na comunicação com apenas um cliente, mas baixíssima taxa
+        quando o número de clientes subiu. Esse fato é discutido abaixo, no tópico 4.3.
+        <br><br>
+        Apesar da diferença no segundo teste, os resultados levam o grupo a acreditar que o IP não é responsável 
+        pelas perdas, mas sim a saturação do buffer UDP.
         <br><br>
         Além disso, a dupla também notou que não houve entrega de mensagens fora de ordem, o que 
         pode ser explicado pela curta distância e portanto baixa quantidade de hops entre as máquinas.

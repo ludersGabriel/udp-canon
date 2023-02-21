@@ -9,3 +9,5 @@ totalClients, totalMessages, totalMessagesLost, lossRate
 1, 1e+06, 389559, 38.9559
 1, 2e+06, 493273, 24.6636
 1, 4e+06, 1.37052e+06, 34.263
+3, 15, 0, 0
+3, 15000, 11648, 77.6533
