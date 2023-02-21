@@ -41,7 +41,7 @@ int main(int argc, char** argv) {
 
   fprintf(server->output, "server: now waiting messages...\n");
   for(;!isDone;){
-    alarm(5);
+    alarm(7);
     receiveFromClient(server);
     alarm(0);
     sendToClient(server);

@@ -8,7 +8,7 @@ do
   for j in "${totalMessages[@]}"
   do
     echo "Running test with $i clients and $j messages"
-    ./client glastheim 8080 $i $j ./docs/logs/client/teste2/client-$i-$j-$num.txt
+    ./client h30 8080 $i $j ./docs/logs/client/teste2/client-$i-$j-$num.txt
     sleep 7
   done
 done
