@@ -1,5 +1,5 @@
-totalClients=(1 2 4 8 16 32 64 128 256)
-totalMessages=(100 200 400 800 1600 3200 6400)
+totalClients=(1)
+totalMessages=(1000 10000 50000 100000 250000 500000 750000 1000000 2000000 4000000)
 
 echo "totalClients, totalMessages, totalMessagesLost, lossRate" > general-report.csv
 
@@ -9,8 +9,8 @@ do
   do
     echo "Running test with $i clients and $j messages"
     gnome-terminal -- ./server 8080 silent
-    sleep 1
+    sleep 2
     ./client glastheim 8080 $i $j silent
-    sleep 7
+    sleep 9
   done
 done

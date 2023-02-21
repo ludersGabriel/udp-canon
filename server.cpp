@@ -120,6 +120,12 @@ void printLossReport(Server* server){
     printf( "server: printing loss report\n\n");
   for(auto it : server->reportInfo->infos){
     int lost = server->totalMessagesExpected - it.second.size();
+    printf(
+      "\tClient %d lost %d messages, size %d\n",
+      it.first,
+      lost, 
+      it.second.size()
+    );
     server->totalLostMessages += lost;
 
     if(server->silent) continue;

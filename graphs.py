@@ -25,7 +25,8 @@ def packetsReceived():
   plt.show()
 
 def generalReport():
-  with open('general-report.csv') as csvfile:
+  num = '4'
+  with open('./docs/reports/general-report' + num + '.csv') as csvfile:
     plots = csv.reader(csvfile, delimiter=',')
 
     # skips headers
@@ -38,26 +39,31 @@ def generalReport():
       totalClients = row[0]
       totalMessages = row[1]
       totalMessagesLost = row[2]
-      
-      if totalClients not in data:
-        data[totalClients] = [(int(totalMessages), int(totalMessagesLost))]
-      else:
-        data[totalClients] += [(int(totalMessages), int(totalMessagesLost))]    
+      lossRate = row[3]
 
-      data2.append((int(totalMessages), int(totalMessagesLost)))
-      
-    # for key in data:
-    #   x = []
-    #   y = []
-    #   for totalMessages, totalLost in data[key]:
-    #     x.append(str(totalMessages))
-    #     y.append(totalLost)
-    #   print(x, y)
-    #   plt.bar(x, y)
-    #   plt.show()
+      data2.append((str(totalMessages), float(lossRate)))
     
-    data2.sort()
-    plt.plot([x for x, y in data2], [y for x, y in data2])
+    average = sum([y for x, y in data2]) / len([y for x, y in data2])
+    print(data2)
+    plt.bar([x for x, y in data2], [y for x, y in data2])
+    fig = plt.gcf()
+    fig.set_size_inches(18, 9)
+    plt.title('Loss Rate vs Total Messages (1 total clients)')
+    plt.axhline(average, color='r', linestyle='--', label='Average Loss Rate')
+    plt.ylabel('Loss Rate (%)')
+    plt.xlabel('Total Messages')
+    plt.legend()
+    plt.text(
+      0, 
+      average, 
+      "{:.2f}".format(average) + '%', 
+      color='black', 
+      fontsize=14, 
+      ha='right', 
+      va='bottom'
+    )
+  
+    plt.savefig('./docs/graphs/loss-rate-vs-total-messages' + num + '.png')
     plt.show()
           
 def main():

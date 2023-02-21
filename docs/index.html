@@ -120,7 +120,9 @@
       </p>
       <p>
         <br>
-        No mais, as mensagens são enviadas utilizando sendTo e recebidas utilizando recvFrom:  
+        No mais, as mensagens são enviadas utilizando sendTo e recebidas utilizando recvFrom,
+        como o objetivo é medir a taxa de perda de pacotes, não há reenvio de mensagens nem
+        confirmação de recebimento:  
       </p>
 
       <div class="communication">
@@ -144,8 +146,10 @@
       <p>
         <br>
         Os testes constituem em uma bateria de comunicações com 
-        diferentes quantidades de clientes e mensagens por clientes. Fizemos dessa maneira
-        com o objetivo de ser exaustivo e não deixar dúvidas sobre os resultados.
+        diferentes quantidades de clientes e mensagens por clientes, além de uma segunda
+        bateria de testes com um número fixo de clientes = 1 e variação na 
+        quantidade de mensagens. Fizemos dessa maneira com o objetivo de sermos exaustivos
+         e não deixar dúvidas sobre os resultados.
         <br><br>
         Há um script run.sh que automatiza a execução nas máquinas pessoais e que demonstra
         o que foi feito nas do laboratório. Logs de execução e os arquivos fonte estão 
@@ -156,7 +160,7 @@
       <h2>4. Resultados</h2>
       <p>
         Os resultados obtidos foram curiosos. A equipe percebeu que a comunicação entre duas
-        máquinas diferentes e a comunicação nas máquinas pessoas dos integrantes do grupo
+        máquinas diferentes e a comunicação nas máquinas pessoais dos integrantes do grupo
         não apresentaram resutados muito diferentes.
         <br><br>
         Apesar de a comunicação nas máquinas pessoais nem usar a placa de rede, notamos uma grande
@@ -174,7 +178,7 @@
         máquinas do laboratório.
       </p>
 
-      <h3>4.1 Extração</h3>
+      <h3>4.1. Extração</h3>
       <p>
         Tanto cliente quanto servidor apresentam relatórios básicos de execução. Os clientes mostram
         quantas mensagens enviaram e indicam se tudo ocorreu como esperado, ao passo que o servidor
@@ -193,14 +197,51 @@
       </div>
 
       <p>
-        Agora um exemplo um pouco maior,  porém mostrando só o footer dos relatórios:
+        Agora um exemplo um pouco maior, com 8 clientes e 500 mensagens por cliente, porém mostrando 
+        só o footer dos relatórios:
       </p>
-
+      
+      <div class="serverImages">
+        <div class="imgWrapper">
+          <img src="images/h29footer.png" alt="relatório extendido do cliente">
+        </div>
+        <div class="imgWrapper">
+          <img src="images/h30footer.png" alt="relatório extendido do servidor">
+        </div>
+      </div>
+      
       <p>
         <br>
         Além disso, o servidor também escreve alguns arquivos que são utilizados para geração de 
         gráficos e análise dos resultados obtidos. Esses arquivos contém informações sobre
-        toda a bateria de testes realizada, permitindo uma análise mais geral dos resultados.
+        toda a bateria de testes realizada, permitindo uma análise mais geral dos resultados e podem 
+        ser encontrados na aba de arquivos fonte.
+      </p>
+
+      <h3>4.2. Número de clientes fixo = 1</h3>
+      <p>
+        A primeira bateria de testes foi feita com um número fixo de clientes = 1 e variação na 
+        quantidade de mensagens. O objetivo era verificar se a taxa de perda de pacotes aumentava
+        com o aumento da quantidade de mensagens. 
+        <br><br>
+        Rodamos com um cliente para um intervalo de 1000 a 31000 mensagens com incremento de 3000. O
+        teste foi repetido 4 vezes e a média de perda de pacotes foi calculada cada vez e anotada 
+        nos gráficos:
+      </p>
+
+      <div class="graphs">
+          <img src="graphs/loss-rate-vs-total-messages1.png" alt="gráfico de 1 cliente 1">
+          <img src="graphs/loss-rate-vs-total-messages2.png" alt="gráfico de 1 cliente 2">
+          <img src="graphs/loss-rate-vs-total-messages3.png" alt="gráfico de 1 cliente 3">
+          <img src="graphs/loss-rate-vs-total-messages4.png" alt="gráfico de 1 cliente 4">
+      </div>
+
+      <p>
+        Com uma taxa média final de 33.43% de perda de pacotes, o grupo concluiu que a taxa se mantém
+        num intervalo pouco variável a partir do momento que o número de mensagens é grande o suficiente para
+        causar a saturação do buffer UDP e portanto só depende da velocidade com que o servidor consegue
+        processar as mensagens com relação a velocidade que o cliente está enviando e não da quantidade de
+        mensagens em si, ao menos quando temos apenas um cliente enviando mensagens.
       </p>
     </div>
   </section>
