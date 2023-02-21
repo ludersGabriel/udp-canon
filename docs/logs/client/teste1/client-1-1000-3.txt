@@ -3,7 +3,7 @@ client: forked all clients
 
 client: printing reports for each fork
 
-	Client 578464
+	Client 730496
 		sentId 1: sent cannonball 1
 		sentId 2: sent cannonball 2
 		sentId 3: sent cannonball 3
@@ -1007,7 +1007,7 @@ client: printing reports for each fork
 
 client: printing sent report
 
-	Client 578464
+	Client 730496
 		Expected to send: 1000
 		Messages sent: 1000
 
