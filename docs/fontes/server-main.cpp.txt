@@ -1,3 +1,13 @@
+/* --------------------------------------------------------------------------------------
+ Main do servidor de um sistema de comunicacao via sockets UDP
+   Objetivo: detectar a taxa de perda de pacotes em uma rede
+   Restricoes: rodar cliente após servidor
+
+   Autores: Eduardo Vudala e Gabriel Lüders
+   Disciplina: Redes II
+   Data da ultima atualizacao: 2023/2
+----------------------------------------------------------------------------------------*/
+
 #include <iostream>
 #include <bits/stdc++.h>
 #include <signal.h>
